@@ -1,5 +1,16 @@
 <h1>Ticket Handling App</h1>
 <h2>Log into your Account</h2>
 
+<label for="usernameInput">Username</label>
+<input id = "usernameInput" type="text" [(ngModel)]="userName">
 
-<!-- <button (click) = "login()">Log In</button> -->
+<label for="passwordInput">Password</label>
+<input id = "passwordInput" type="text" [(ngModel)]="password">
+
+<button (click) = "loginClient()">Client Log In</button>
+
+<button (click) = "loginTech()">Technician Log In</button>
+
+
+
+
