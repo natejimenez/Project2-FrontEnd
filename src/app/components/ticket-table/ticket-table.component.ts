@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Ticket } from 'src/app/models/ticket';
+import { TicketService } from 'src/app/services/ticket.service';
 
 @Component({
   selector: 'app-ticket-table',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketTableComponent implements OnInit {
 
-  constructor() { }
+  tickets:Ticket[] = []
+  
+  constructor(private ticketService:TicketService) { }
 
   ngOnInit(): void {
+    this.refreshTickets()
+  }
+
+  async refreshTickets(){
+    this.tickets = await this.ticketService.getTicketsByClientId(1)
   }
 
 }

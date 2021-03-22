@@ -8,6 +8,8 @@ import { TechnicianPageComponent } from './components/technician-page/technician
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { ClientPageComponent } from './components/client-page/client-page.component';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+import { TicketTableComponent } from './components/ticket-table/ticket-table.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { HttpClientModule } from '@angular/common/http'
     LoginPageComponent,
     TechnicianPageComponent,
     AdminPageComponent,
-    ClientPageComponent
+    ClientPageComponent,
+    TicketTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

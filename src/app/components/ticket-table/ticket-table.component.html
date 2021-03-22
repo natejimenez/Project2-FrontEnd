@@ -1,6 +1,13 @@
 <p>ticket-table works!</p>
 <table>
 
-    <thead><th></th></thead>
-
+    <thead><th>ID</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th></thead>
+<tbody>
+    <tr *ngFor="let ticket of tickets">
+        <td>{{ticket.ticketId}}</td>
+        <td>{{ticket.description}}</td>
+        <td>{{ticket.epochStart}}</td>
+        <td>{{ticket.epochEnd}}</td>
+    </tr>
+</tbody>
 </table>
