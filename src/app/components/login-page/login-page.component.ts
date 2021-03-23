@@ -23,13 +23,29 @@ export class LoginPageComponent implements OnInit {
     const clientJwt = JSON.stringify(jwt)   
     console.log(clientJwt)
     localStorage.setItem('jwt',clientJwt);
+    var decoded = await this.loginService.parseJwt(clientJwt)
+    console.log(decoded.role)
     console.log(localStorage.getItem('jwt'))
+    if(decoded.role == 'client'){
+      window.location.href = "./client"
+    }
   }
   async loginTech(){
     let credential:Credential = new Credential(this.userName,this.password)
     const jwt = await this.loginService.techLogin(credential);
     localStorage.setItem('jwt',jwt);
+    var decoded = await this.loginService.parseJwt(jwt)
+    console.log(decoded.role)
     console.log(localStorage.getItem('jwt'))
+    if(decoded.role == 'TECH'){
+      window.location.href = "./technician"
+    }
+    if(decoded.role =='ADMIN'){
+      window.location.href = "./admin"
+    }
+    
   }
+
+
 
 }

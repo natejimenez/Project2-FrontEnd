@@ -10,6 +10,8 @@ import { ClientPageComponent } from './components/client-page/client-page.compon
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { TicketTableComponent } from './components/ticket-table/ticket-table.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,16 @@ import { TicketTableComponent } from './components/ticket-table/ticket-table.com
     TechnicianPageComponent,
     AdminPageComponent,
     ClientPageComponent,
-    TicketTableComponent
+    TicketTableComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

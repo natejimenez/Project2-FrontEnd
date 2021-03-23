@@ -11,7 +11,7 @@ export class LoginService {
 
   async clientLogin(credential:Credential){
 
-    let clientJwt = await this.http.post("http://localhost:8081/client/login",credential).toPromise();  
+    let clientJwt = await this.http.post<string>("http://localhost:8081/client/login",credential,{responseType:'text' as 'json'}).toPromise();  
     console.log(clientJwt)
     return clientJwt
   }
@@ -21,6 +21,18 @@ export class LoginService {
     console.log(techJwt)
     return techJwt    
   }
+
+  async parseJwt (token:string) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+
+    return JSON.parse(jsonPayload);
+
+}
+
 
 
 }
