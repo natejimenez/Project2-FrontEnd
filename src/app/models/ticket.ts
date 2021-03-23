@@ -6,7 +6,7 @@ export class Ticket{
         public priority:number,
         public epochStart:number,
         public epochEnd:number,
-        public comments:string[]
-
+        public comments:string[],
+        public clientId:number
     ){}
 }

@@ -26,6 +26,9 @@ export class LoginPageComponent implements OnInit {
     var decoded = await this.loginService.parseJwt(clientJwt)
     console.log(decoded.role)
     console.log(localStorage.getItem('jwt'))
+    localStorage.setItem('role',decoded.role)
+    localStorage.setItem('id',decoded.id)
+
     if(decoded.role == 'client'){
       window.location.href = "./client"
     }
@@ -37,6 +40,8 @@ export class LoginPageComponent implements OnInit {
     var decoded = await this.loginService.parseJwt(jwt)
     console.log(decoded.role)
     console.log(localStorage.getItem('jwt'))
+    localStorage.setItem('role',decoded.role)
+    localStorage.setItem('id',decoded.id)
     if(decoded.role == 'TECH'){
       window.location.href = "./technician"
     }

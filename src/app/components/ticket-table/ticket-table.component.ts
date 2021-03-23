@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Ticket } from 'src/app/models/ticket';
+import { LoginService } from 'src/app/services/login.service';
 import { TicketService } from 'src/app/services/ticket.service';
 
 @Component({
@@ -11,14 +12,21 @@ export class TicketTableComponent implements OnInit {
 
   tickets:Ticket[] = []
   
-  constructor(private ticketService:TicketService) { }
+  constructor(private ticketService:TicketService,private loginService:LoginService) { }
 
   ngOnInit(): void {
     this.refreshTickets()
   }
 
   async refreshTickets(){
-    this.tickets = await this.ticketService.getTicketsByClientId(1)
+    let id = 0
+    let decoded;
+
+    if(localStorage.getItem('jwt') != null){
+       decoded = await this.loginService.parseJwt(<string>localStorage.getItem('jwt'))
+
+    }
+    this.tickets = await this.ticketService.getTicketsByClientId(decoded.id)
   }
 
 }

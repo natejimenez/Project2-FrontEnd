@@ -12,6 +12,9 @@ import { FormsModule } from '@angular/forms';
 import { TicketTableComponent } from './components/ticket-table/ticket-table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
+import { CreateTicketDialogComponent } from './components/create-ticket-dialog/create-ticket-dialog.component';
+import { CreateTicketDialogContentComponent } from './components/create-ticket-dialog/create-ticket-dialog-content/create-ticket-dialog-content.component';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +24,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     AdminPageComponent,
     ClientPageComponent,
     TicketTableComponent,
+    LoginPageComponent,
+    CreateTicketDialogComponent,
+    CreateTicketDialogContentComponent,
+ 
     
   ],
   imports: [
