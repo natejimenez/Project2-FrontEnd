@@ -11,18 +11,15 @@ export class LoginService {
 
   async clientLogin(credential:Credential){
 
-    let clientJwt = await this.http.post("http://localhost:8081/client/login",credential).toPromise();
-    const jwt = JSON.stringify(clientJwt)  
-    console.log(jwt)
-    return jwt
+    let clientJwt = await this.http.post("http://localhost:8081/client/login",credential).toPromise();  
+    console.log(clientJwt)
+    return clientJwt
   }
-
   async techLogin(credential:Credential){
     console.log(credential)
-    const techJwt = await this.http.post<string>("http://localhost:8081/tech/login",credential).toPromise();
-    return techJwt
-   
-    
+    let techJwt = await this.http.post<string>("http://localhost:8081/tech/login",credential,{responseType:'text' as 'json'}).toPromise();
+    console.log(techJwt)
+    return techJwt    
   }
 
 
