@@ -38,5 +38,19 @@ export class TicketService {
     ticket = await this.http.put<Ticket>(`http://localhost:8081/tickets/${id}`,ticket).toPromise();
     return ticket
   }
+
+  async assignTicket(ticket:Ticket):Promise<Ticket>{
+    const jwt = localStorage.getItem('jwt')
+        const details = {
+            body: ticket,
+            method:"POST",
+            headers:{
+                "Authorization": jwt
+            }
+        }
+
+    ticket = await this.http.post<Ticket>(`http://localhost:8081/tech/ticket`,details).toPromise();
+    return ticket
+  }
   
 }
