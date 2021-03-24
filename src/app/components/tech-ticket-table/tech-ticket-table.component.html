@@ -1,7 +1,7 @@
 <p>tech-ticket-table works!</p>
 <table>
 
-    <thead><th>ClientID</th><th>ID</th><th>Priority</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th><th>Assign</th></thead>
+    <thead><th>ClientID</th><th>ID</th><th>Priority</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th><th>Assign</th><th>Escalate</th><th>Close</th></thead>
 <tbody>
     <tr *ngFor="let ticket of tickets">
         <td>{{ticket.clientId}}</td>
@@ -10,8 +10,10 @@
         <td>{{ticket.description}}</td>
         <td>{{ticket.epochStart}}</td>
         <td>{{ticket.epochEnd}}</td>
-        <td><button class="btn btn-outline-dark" (click) = "assignTicket(ticket)">Assign</button></td>
-    
+        <td><button (click) = "assignTicket(ticket.ticketId)">Assign</button></td>
+        <td><button (click) = "escalateTicket(ticket)">Escalate</button></td>
+        <td><button (click) = "closeTicket(ticket)">Close</button></td>
+  
     </tr>
 </tbody>
 </table>

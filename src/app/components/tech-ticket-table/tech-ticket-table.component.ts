@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TechTicket } from 'src/app/models/techticket';
 import { Ticket } from 'src/app/models/ticket';
 import { LoginService } from 'src/app/services/login.service';
 import { TicketService } from 'src/app/services/ticket.service';
@@ -11,6 +12,7 @@ import { TicketService } from 'src/app/services/ticket.service';
 export class TechTicketTableComponent implements OnInit {
 
   
+ 
   tickets:Ticket[] = []
   ticket:Ticket = {ticketId:0,description:'',priority:0,epochStart:0,epochEnd:0,comments:[],clientId:0}
   
@@ -31,8 +33,29 @@ export class TechTicketTableComponent implements OnInit {
     this.tickets = await this.ticketService.getAllTickets()
   }
    
-  async assignTicket(ticket:Ticket){
-   this.ticket = await this.ticketService.assignTicket(ticket)
+  async assignTicket(id:number){
+    let decoded;
+    let techId;
+    if(localStorage.getItem('jwt') != null){
+      decoded = await this.loginService.parseJwt(<string>localStorage.getItem('jwt'))
+      techId = decoded.id
+   }
+    let techTicket:TechTicket = new TechTicket(techId,id)
+   await this.ticketService.assignTicket(techTicket)
+   alert("Ticket was successfully assigned to you.")
+  }
+
+  async escalateTicket(ticket:Ticket){
+    await this.ticketService.escalateTicket(ticket)
+    alert("Ticket was successfully escalated")
+    this.tickets = await this.ticketService.getAllTickets()
+
+  }
+  async closeTicket(ticket:Ticket){
+    await this.ticketService.closeTicket(ticket)
+    alert("Ticket was successfully closed.")
+    this.tickets = await this.ticketService.getAllTickets()
+
   }
 
 }
