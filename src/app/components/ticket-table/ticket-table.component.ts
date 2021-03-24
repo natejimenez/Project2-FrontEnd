@@ -11,6 +11,7 @@ import { TicketService } from 'src/app/services/ticket.service';
 export class TicketTableComponent implements OnInit {
 
   tickets:Ticket[] = []
+  ticket:Ticket = {ticketId:0,description:'',priority:0,epochStart:0,epochEnd:0,comments:[],clientId:0}
   
   constructor(private ticketService:TicketService,private loginService:LoginService) { }
 
@@ -27,6 +28,9 @@ export class TicketTableComponent implements OnInit {
 
     }
     this.tickets = await this.ticketService.getTicketsByClientId(decoded.id)
+  }
+  async getTicket(id:number){
+    this.ticket = await this.ticketService.getTicketById(id)
   }
 
 }

@@ -12,6 +12,7 @@ export class TechTicketTableComponent implements OnInit {
 
   
   tickets:Ticket[] = []
+  ticket:Ticket = {ticketId:0,description:'',priority:0,epochStart:0,epochEnd:0,comments:[],clientId:0}
   
   constructor(private ticketService:TicketService,private loginService:LoginService) { }
 
@@ -27,7 +28,11 @@ export class TechTicketTableComponent implements OnInit {
        decoded = await this.loginService.parseJwt(<string>localStorage.getItem('jwt'))
 
     }
-    this.tickets = await this.ticketService.getTicketsByTechId(decoded.id)
+    this.tickets = await this.ticketService.getAllTickets()
+  }
+   
+  async assignTicket(ticket:Ticket){
+   this.ticket = await this.ticketService.assignTicket(ticket)
   }
 
 }

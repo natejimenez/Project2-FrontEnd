@@ -8,6 +8,8 @@
         <td>{{ticket.description}}</td>
         <td>{{ticket.epochStart}}</td>
         <td>{{ticket.epochEnd}}</td>
+        <td><button class="btn btn-outline-dark" (click) = "getTicket(ticket.ticketId)">See Details</button></td>
+    
     </tr>
 </tbody>
 </table>
