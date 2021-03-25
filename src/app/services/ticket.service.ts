@@ -1,6 +1,8 @@
+ 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Ticket } from 'src/app/models/ticket'
+import { TechTicket } from '../models/techticket';
 
 @Injectable({
   providedIn: 'root'
@@ -39,18 +41,44 @@ export class TicketService {
     return ticket
   }
 
-  async assignTicket(ticket:Ticket):Promise<Ticket>{
-    const jwt = localStorage.getItem('jwt')
+
+  async assignTicket(techTicket:TechTicket){
+    const jwt = <string>localStorage.getItem('jwt')
         const details = {
-            body: ticket,
-            method:"POST",
+
             headers:{
                 "Authorization": jwt
             }
         }
 
-    ticket = await this.http.post<Ticket>(`http://localhost:8081/tech/ticket`,details).toPromise();
-    return ticket
+      await this.http.post(`http://localhost:8081/tech/ticket`,techTicket,details).toPromise();
+    
+  }
+
+  async escalateTicket(ticket:Ticket):Promise<Ticket>{
+    const jwt = <string>localStorage.getItem('jwt')
+        const details = {
+            headers:{
+                "Authorization": jwt
+            }
+        }
+
+    ticket = await this.http.put<Ticket>(`http://localhost:8081/tech/ticket`,ticket,details).toPromise();
+        return ticket
+  }
+
+  async closeTicket(ticket:Ticket):Promise<Ticket>{
+    const jwt = <string>localStorage.getItem('jwt')
+        const details = {
+            headers:{
+                "Authorization": jwt
+            }
+        }
+
+    ticket = await this.http.put<Ticket>(`http://localhost:8081/tech/ticket?closed=true`,ticket,details).toPromise();
+        return ticket
+
   }
   
 }
+

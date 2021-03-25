@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CreateTicketDialogComponent } from './components/create-ticket-dialog/create-ticket-dialog.component';
 import { CreateTicketDialogContentComponent } from './components/create-ticket-dialog/create-ticket-dialog-content/create-ticket-dialog-content.component';
+import { TechTicketTableComponent } from './components/tech-ticket-table/tech-ticket-table.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { CreateTicketDialogContentComponent } from './components/create-ticket-d
     LoginPageComponent,
     CreateTicketDialogComponent,
     CreateTicketDialogContentComponent,
+    TechTicketTableComponent,
  
     
   ],
