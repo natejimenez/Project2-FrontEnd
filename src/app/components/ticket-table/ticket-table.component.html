@@ -4,12 +4,13 @@
     <thead><th>ID</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th></thead>
 <tbody>
     <tr *ngFor="let ticket of tickets">
+
         <td>{{ticket.ticketId}}</td>
         <td>{{ticket.description}}</td>
         <td>{{ticket.epochStart}}</td>
         <td>{{ticket.epochEnd}}</td>
         <td><button class="btn btn-outline-dark" (click) = "getTicket(ticket.ticketId)">See Details</button></td>
-    
+
     </tr>
 </tbody>
 </table>
@@ -48,4 +49,37 @@
     </tbody>
 </table>
 
+
+<table >
+    <thead></thead>
+    <tbody>
+
+        <tr>
+            <td class="leftHeader">Ticket ID</td>          
+            <td>{{ticket.ticketId}}</td>
+            
+        </tr>
+        <tr>
+            <td class="leftHeader">Client ID</td>
+            <td>{{ticket.clientId}}</td>
+         </tr>
+        <tr>
+            <td class="leftHeader">Description</td>
+            <td>{{ticket.description}}</td>
+        </tr>
+        <tr>
+            <td class="leftHeader">Date Submitted</td>
+            <td>{{ticket.epochStart}}</td>
+        </tr>
+        <tr>
+            <td class="leftHeader">Date Completed</td>
+            <td>{{ticket.epochEnd}}</td>
+        </tr>
+         <tr>
+            <td class="leftHeader">Comments</td>
+            <td>{{ticket.comments}}</td>
+         </tr>
+         
+    </tbody>
+</table>
 

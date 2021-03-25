@@ -41,9 +41,11 @@ export class TicketService {
     return ticket
   }
 
+
   async assignTicket(techTicket:TechTicket){
     const jwt = <string>localStorage.getItem('jwt')
         const details = {
+
             headers:{
                 "Authorization": jwt
             }
@@ -75,6 +77,7 @@ export class TicketService {
 
     ticket = await this.http.put<Ticket>(`http://localhost:8081/tech/ticket?closed=true`,ticket,details).toPromise();
         return ticket
+
   }
   
 }
