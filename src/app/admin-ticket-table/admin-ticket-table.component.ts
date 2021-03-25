@@ -12,6 +12,7 @@ import { TicketService } from '../services/ticket.service';
 export class AdminTicketTableComponent implements OnInit {
 
   tickets:Ticket[] = []
+  techticket:TechTicket[]=[]
   ticket:Ticket = {ticketId:0,description:'',priority:0,epochStart:0,epochEnd:0,comments:[],clientId:0}
   
   constructor(private ticketService:TicketService,private loginService:LoginService) { }
@@ -42,4 +43,17 @@ export class AdminTicketTableComponent implements OnInit {
    await this.ticketService.assignTicket(techTicket)
    alert("Ticket was successfully assigned to you.")
   }
+  async escalateTicket(ticket:Ticket){
+    await this.ticketService.escalateTicket(ticket)
+    alert("Ticket was successfully escalated")
+    this.tickets = await this.ticketService.getAllTickets()
+
+  }
+  async closeTicket(ticket:Ticket){
+    await this.ticketService.closeTicket(ticket)
+    alert("Ticket was successfully closed.")
+    this.tickets = await this.ticketService.getAllTickets()
+
+  }
+
 }
