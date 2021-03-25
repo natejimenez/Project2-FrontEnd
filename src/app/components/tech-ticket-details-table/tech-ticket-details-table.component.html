@@ -10,8 +10,9 @@
         <td>{{ticket.ticketId}}</td>
         <td>{{ticket.priority}}</td>
         <td>{{ticket.description}}</td>
-        <td>{{ticket.epochStart}}</td>
-        <td>{{ticket.epochEnd}}</td>
+        <td>{{ticket.epochStart | date:'medium'}}</td>
+        <td><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
+
         <td><button (click) = "escalateTicket(ticket)">Escalate</button></td>
         <td><button (click) = "closeTicket(ticket)">Close</button></td>
   
