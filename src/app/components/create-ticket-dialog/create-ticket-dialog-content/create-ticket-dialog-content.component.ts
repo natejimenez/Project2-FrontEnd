@@ -22,9 +22,6 @@ export class CreateTicketDialogContentComponent {
     let ticket:Ticket = new Ticket(0,this.description,0,0,0,[],1)
 
     ticket = await this.ticketService.createTicket(ticket);
-
-
-
   }
 
 

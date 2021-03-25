@@ -15,7 +15,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { CreateTicketDialogComponent } from './components/create-ticket-dialog/create-ticket-dialog.component';
 import { CreateTicketDialogContentComponent } from './components/create-ticket-dialog/create-ticket-dialog-content/create-ticket-dialog-content.component';
 import { TechTicketTableComponent } from './components/tech-ticket-table/tech-ticket-table.component';
-
+import { TechTabGroupComponent } from './components/tech-tab-group/tech-tab-group.component';
+import {MatTab, MatTabsModule} from '@angular/material/tabs';
+import { TechTicketDetailsTableComponent } from './components/tech-ticket-details-table/tech-ticket-details-table.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { TechTicketTableComponent } from './components/tech-ticket-table/tech-ti
     CreateTicketDialogComponent,
     CreateTicketDialogContentComponent,
     TechTicketTableComponent,
+    TechTabGroupComponent,
+    TechTicketDetailsTableComponent,
  
     
   ],
@@ -38,7 +42,8 @@ import { TechTicketTableComponent } from './components/tech-ticket-table/tech-ti
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

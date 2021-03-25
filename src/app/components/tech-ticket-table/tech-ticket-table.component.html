@@ -1,20 +1,58 @@
 <p>tech-ticket-table works!</p>
+<button (click)="refreshTickets()">Refresh Table</button>
 <table>
 
-    <thead><th>ClientID</th><th>ID</th><th>Priority</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th><th>Assign</th><th>Escalate</th><th>Close</th></thead>
+    <thead><th>ClientID</th><th>ID</th><th>Priority</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th><th>See Details</th><th>Assign</th></thead>
 <tbody>
     <tr *ngFor="let ticket of tickets">
         <td>{{ticket.clientId}}</td>
         <td>{{ticket.ticketId}}</td>
         <td>{{ticket.priority}}</td>
         <td>{{ticket.description}}</td>
+        
+
         <td>{{ticket.epochStart | date:'MM/DD/YY'}}</td>
         <td>{{ticket.epochEnd | date:'MM/DD/YY'}}</td>
+
+      <td><button  (click) = "getTicket(ticket.ticketId)">See Details</button></td>
         <td><button (click) = "assignTicket(ticket.ticketId)">Assign</button></td>
-        <td><button (click) = "escalateTicket(ticket)">Escalate</button></td>
-        <td><button (click) = "closeTicket(ticket)">Close</button></td>
-  
+
     </tr>
 </tbody>
 </table>
-<button (click)="refreshTickets()">Refresh Tickets</button>
+
+
+<table >
+    <thead></thead>
+    <tbody>
+
+        <tr>
+            <td class="leftHeader">Ticket ID</td>          
+            <td>{{ticket.ticketId}}</td>
+            
+        </tr>
+        <tr>
+            <td class="leftHeader">Client ID</td>
+            <td>{{ticket.clientId}}</td>
+         </tr>
+        <tr>
+            <td class="leftHeader">Description</td>
+            <td>{{ticket.description}}</td>
+        </tr>
+        <tr>
+            <td class="leftHeader">Date Submitted</td>
+            <td>{{ticket.epochStart}}</td>
+        </tr>
+        <tr>
+            <td class="leftHeader">Date Completed</td>
+            <td>{{ticket.epochEnd}}</td>
+        </tr>
+         <tr>
+            <td class="leftHeader">Comments</td>
+            <td>{{ticket.comments}}</td>
+         </tr>
+         
+    </tbody>
+</table>
+
+

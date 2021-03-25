@@ -34,6 +34,7 @@ export class TicketService {
   }
 
   async createTicket(ticket:Ticket):Promise<Ticket>{
+
     const jwt = <string>localStorage.getItem('jwt')
     const details = {
         headers:{
@@ -56,13 +57,7 @@ export class TicketService {
   }
 
   async getTicketsByTechId(id:number):Promise<Ticket[]>{
-    const jwt = <string>localStorage.getItem('jwt')
-    const details = {
-        headers:{
-            "Authorization": jwt
-        }
-    }
-    const techTickets:Ticket[] = await this.http.get<Ticket[]>(`http://localhost:8081/tickets/tech/${id}`,details).toPromise();
+    const techTickets:Ticket[] = await this.http.get<Ticket[]>(`http://localhost:8081/tech/ticket?id=${id}`).toPromise();
     return techTickets
   }
 
