@@ -5,21 +5,19 @@ import { LoginService } from 'src/app/services/login.service';
 import { TicketService } from 'src/app/services/ticket.service';
 
 @Component({
-  selector: 'app-tech-ticket-table',
-  templateUrl: './tech-ticket-table.component.html',
-  styleUrls: ['./tech-ticket-table.component.css']
+  selector: 'app-tech-ticket-details-table',
+  templateUrl: './tech-ticket-details-table.component.html',
+  styleUrls: ['./tech-ticket-details-table.component.css']
 })
-export class TechTicketTableComponent implements OnInit {
+export class TechTicketDetailsTableComponent implements OnInit {
 
-  
- 
   tickets:Ticket[] = []
   ticket:Ticket = {ticketId:0,description:'',priority:0,epochStart:0,epochEnd:0,comments:[],clientId:0}
   
   constructor(private ticketService:TicketService,private loginService:LoginService) { }
 
   ngOnInit(): void {
-    this.refreshTickets()
+    this.refreshTickets();
   }
 
   async refreshTickets(){
@@ -28,9 +26,10 @@ export class TechTicketTableComponent implements OnInit {
 
     if(localStorage.getItem('jwt') != null){
        decoded = await this.loginService.parseJwt(<string>localStorage.getItem('jwt'))
+       
 
     }
-    this.tickets = await this.ticketService.getAllTickets()
+    this.tickets = await this.ticketService.getTicketsByTechId(decoded.id)
   }
   async getTicket(id:number){
     this.ticket = await this.ticketService.getTicketById(id)
@@ -60,6 +59,4 @@ export class TechTicketTableComponent implements OnInit {
     this.tickets = await this.ticketService.getAllTickets()
 
   }
-
 }
-

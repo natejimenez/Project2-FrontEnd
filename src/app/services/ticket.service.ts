@@ -22,6 +22,7 @@ export class TicketService {
   }
 
   async createTicket(ticket:Ticket):Promise<Ticket>{
+
     ticket = await this.http.post<Ticket>("http://localhost:8081/tickets",ticket).toPromise();
     return ticket
   }
@@ -32,7 +33,7 @@ export class TicketService {
   }
 
   async getTicketsByTechId(id:number):Promise<Ticket[]>{
-    const techTickets:Ticket[] = await this.http.get<Ticket[]>(`http://localhost:8081/tickets/tech/${id}`).toPromise();
+    const techTickets:Ticket[] = await this.http.get<Ticket[]>(`http://localhost:8081/tech/ticket?id=${id}`).toPromise();
     return techTickets
   }
 
