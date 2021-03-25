@@ -1,0 +1,19 @@
+<p>admin-ticket-table works!</p>
+<table>
+
+    <thead><th>ClientID</th><th>ID</th><th>Priority</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th><th>Assign</th><th>Escalate</th><th>Close</th></thead>
+<tbody>
+    <tr *ngFor="let ticket of tickets">
+        <td>{{ticket.clientId}}</td>
+        <td>{{ticket.ticketId}}</td>
+        <td>{{ticket.priority}}</td>
+        <td>{{ticket.description}}</td>
+        <td>{{ticket.epochStart}}</td>
+        <td>{{ticket.epochEnd}}</td>
+        <td><button (click) = "assignTicket(ticket.ticketId)">Assign</button></td>
+        
+  
+    </tr>
+</tbody>
+</table>
+<button (click)="refreshTickets()">Refresh Tickets</button>
