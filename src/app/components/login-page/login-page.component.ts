@@ -20,10 +20,9 @@ export class LoginPageComponent implements OnInit {
   async loginClient(){
     let credential:Credential = new Credential(this.userName,this.password)
     const jwt = await this.loginService.clientLogin(credential); 
-    const clientJwt = JSON.stringify(jwt)   
-    console.log(clientJwt)
-    localStorage.setItem('jwt',clientJwt);
-    var decoded = await this.loginService.parseJwt(clientJwt)
+    console.log(jwt);
+    localStorage.setItem('jwt',jwt);
+    var decoded = await this.loginService.parseJwt(jwt);
     console.log(decoded.role)
     console.log(localStorage.getItem('jwt'))
     localStorage.setItem('role',decoded.role)
