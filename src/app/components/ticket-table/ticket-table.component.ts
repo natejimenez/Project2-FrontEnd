@@ -10,7 +10,8 @@ import { TicketService } from 'src/app/services/ticket.service';
 })
 export class TicketTableComponent implements OnInit {
 
-  
+  displayedColumns: string[] = ['ticketId', 'description', 'priority', 'epochStart', 'epochEnd', 'details'];
+
   tickets:Ticket[] = []
   ticket:Ticket = {ticketId:0,description:'',priority:0,epochStart:0,epochEnd:0,comments:[],clientId:0}
   constructor(private ticketService:TicketService,private loginService:LoginService) { }

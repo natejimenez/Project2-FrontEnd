@@ -11,6 +11,9 @@ import { TicketService } from 'src/app/services/ticket.service';
 })
 export class TechTicketDetailsTableComponent implements OnInit {
 
+  displayedColumns: string[] = ['clientId', 'ticketId', 'description', 'priority', 'epochStart', 'epochEnd', 'escalate', 'close'];
+
+
   tickets:Ticket[] = []
   ticket:Ticket = {ticketId:0,description:'',priority:0,epochStart:0,epochEnd:0,comments:[],clientId:0}
   

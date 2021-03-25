@@ -18,6 +18,9 @@ import { TechTicketTableComponent } from './components/tech-ticket-table/tech-ti
 import { TechTabGroupComponent } from './components/tech-tab-group/tech-tab-group.component';
 import {MatTab, MatTabsModule} from '@angular/material/tabs';
 import { TechTicketDetailsTableComponent } from './components/tech-ticket-details-table/tech-ticket-details-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +46,9 @@ import { TechTicketDetailsTableComponent } from './components/tech-ticket-detail
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

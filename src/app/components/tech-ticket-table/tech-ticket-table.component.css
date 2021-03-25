@@ -1,0 +1,10 @@
+.data-table {
+    height: 800px;
+    width: 60%;
+    overflow: auto;
+  }
+  
+
+table {
+    width: 100%;
+  }
