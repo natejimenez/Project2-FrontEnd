@@ -13,7 +13,7 @@ import { Comment } from 'src/app/models/comment'
 
 export class TechTicketTableComponent implements OnInit {
 
-  
+  displayedColumns: string[] = ['clientId', 'ticketId', 'description', 'priority', 'epochStart', 'epochEnd', 'details', 'assign'];
  
   comments:Comment[] = []
   tickets:Ticket[] = []

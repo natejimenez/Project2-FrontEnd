@@ -1,3 +1,15 @@
+
+.data-table {
+    height: 100%;
+    width: 60%;
+    overflow: auto;
+  }
+  
+
+table {
+    width: 100%;
+  }
+
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1.2fr 0.1fr 1.7fr;
@@ -10,3 +22,4 @@
   }
   .ticketsTable { grid-area: ticketsTable; }
 .ticketDetails { grid-area: ticketDetails; }
+
