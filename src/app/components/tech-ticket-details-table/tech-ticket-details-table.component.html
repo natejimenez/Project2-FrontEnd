@@ -1,6 +1,54 @@
 <p>tech-ticket-details-table works!</p>
-<button (click) = "refreshTickets()">Refresh Table</button>
-<table>
+<button mat-raised-button color="primary" (click) = "refreshTickets()">Refresh Table</button>
+
+<table mat-table [dataSource]="tickets">
+    
+    <ng-container matColumnDef="clientId">
+        <th mat-header-cell *matHeaderCellDef>Client ID</th>
+        <td mat-cell *matCellDef="let ticket">{{ticket.clientId}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ticketId">
+        <th mat-header-cell *matHeaderCellDef>Ticket ID</th>
+        <td mat-cell *matCellDef="let ticket">{{ticket.ticketId}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let ticket">{{ticket.description}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="priority">
+        <th mat-header-cell *matHeaderCellDef>Priority</th>
+        <td mat-cell *matCellDef="let ticket">{{ticket.priority}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="epochStart">
+        <th mat-header-cell *matHeaderCellDef>poch Start</th>
+        <td mat-cell *matCellDef="let ticket">{{ticket.epochStart | date:'medium'}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="epochEnd">
+        <th mat-header-cell *matHeaderCellDef>Epoch End</th>
+        <td mat-cell *matCellDef="let ticket"><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
+    </ng-container>
+    
+    <ng-container matColumnDef="escalate">
+        <th mat-header-cell *matHeaderCellDef>Escalate</th>
+        <td mat-cell *matCellDef="let ticket"><button mat-raised-button color="primary" (click) = "getTicket(ticket.ticketId)">See Details</button></td>
+    </ng-container>
+    
+    <ng-container matColumnDef="close">
+        <th mat-header-cell *matHeaderCellDef>Close</th>
+        <td mat-cell *matCellDef="let ticket"><button mat-raised-button color="primary" (click) = "escalateTicket(ticket)">Assign</button></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" (click) = "getTicket(ticket.ticketId)" (click) = "assignTicket(ticket.ticketId)"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    
+</table>
+
+<!-- <table>
 
     <thead><th>ClientID</th><th>Ticket ID</th><th>Priority</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th><th>Escalate</th><th>Close</th></thead>
 <tbody>
@@ -10,11 +58,11 @@
         <td>{{ticket.ticketId}}</td>
         <td>{{ticket.priority}}</td>
         <td>{{ticket.description}}</td>
-        <td>{{ticket.epochStart}}</td>
-        <td>{{ticket.epochEnd}}</td>
+        <td>{{ticket.epochStart | date:'medium'}}</td>
+        <td><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
         <td><button (click) = "escalateTicket(ticket)">Escalate</button></td>
         <td><button (click) = "closeTicket(ticket)">Close</button></td>
   
     </tr>
 </tbody>
-</table>
+</table> -->

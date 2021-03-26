@@ -1,22 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { TechTicket } from 'src/app/models/techticket';
 import { Ticket } from 'src/app/models/ticket';
+import { CommentService } from 'src/app/services/comment.service';
 import { LoginService } from 'src/app/services/login.service';
 import { TicketService } from 'src/app/services/ticket.service';
-
+import { Comment } from 'src/app/models/comment'
 @Component({
   selector: 'app-tech-ticket-table',
   templateUrl: './tech-ticket-table.component.html',
   styleUrls: ['./tech-ticket-table.component.css']
 })
+
 export class TechTicketTableComponent implements OnInit {
 
-  
+  displayedColumns: string[] = ['clientId', 'ticketId', 'description', 'priority', 'epochStart', 'epochEnd', 'details', 'assign'];
  
+  comments:Comment[] = []
   tickets:Ticket[] = []
   ticket:Ticket = {ticketId:0,description:'',priority:0,epochStart:0,epochEnd:0,comments:[],clientId:0}
   
-  constructor(private ticketService:TicketService,private loginService:LoginService) { }
+  constructor(private ticketService:TicketService,private loginService:LoginService, private commentService:CommentService) { }
 
   ngOnInit(): void {
     this.refreshTickets()
@@ -34,6 +37,11 @@ export class TechTicketTableComponent implements OnInit {
   }
   async getTicket(id:number){
     this.ticket = await this.ticketService.getTicketById(id)
+    localStorage.ticketId = JSON.stringify(id)
+    let saved = JSON.parse(localStorage.ticketId)
+    console.log(saved)
+    this.comments = await this.commentService.getAllComments(saved)
+
   }
    
   async assignTicket(id:number){

@@ -1,5 +1,54 @@
 <p>ticket-table works!</p>
+
+<div class="grid-container">
+  <div class="ticketsTable">
+    
+    
+<button (click)="refreshTickets()">Refresh Tickets</button>
+<div class="data-table mat-elevation-z8" >
+<table mat-table [dataSource]="tickets">
+
+<ng-container matColumnDef="ticketId">
+    <th mat-header-cell *matHeaderCellDef>Ticket ID</th>
+    <td mat-cell *matCellDef="let ticket">{{ticket.ticketId}}</td>
+</ng-container>
+
+<ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let ticket">{{ticket.description}}</td>
+</ng-container>
+
+<ng-container matColumnDef="priority">
+    <th mat-header-cell *matHeaderCellDef>Priority</th>
+    <td mat-cell *matCellDef="let ticket">{{ticket.priority}}</td>
+</ng-container>
+
+<ng-container matColumnDef="epochStart">
+    <th mat-header-cell *matHeaderCellDef>poch Start</th>
+    <td mat-cell *matCellDef="let ticket">{{ticket.epochStart | date:'medium'}}</td>
+</ng-container>
+
+<ng-container matColumnDef="epochEnd">
+    <th mat-header-cell *matHeaderCellDef>Epoch End</th>
+    <td mat-cell *matCellDef="let ticket"><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
+</ng-container>
+
+<ng-container matColumnDef="details">
+    <th mat-header-cell *matHeaderCellDef>Details</th>
+    <td mat-cell *matCellDef="let ticket"><button mat-raised-button color="primary" (click) = "getTicket(ticket.ticketId)">See Details</button></td>
+</ng-container>
+
+<tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" (click) = "getTicket(ticket.ticketId)"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+</table>
+</div>
+</div>
+<!-- <table>
+
+
 <table>
+
 
     <thead><th>ID</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th></thead>
 <tbody>
@@ -13,10 +62,11 @@
 
     </tr>
 </tbody>
-</table>
-<button (click)="refreshTickets()">Refresh Tickets</button>
 
-<table >
+
+
+
+<!-- <table >
     <thead></thead>
     <tbody>
 
@@ -40,7 +90,7 @@
         </tr>
         <tr>
             <td class="leftHeader">Date Completed</td>
-            <td>{{ticket.epochEnd | date:'medium'}}</td>
+        <td><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
         </tr>
          <tr>
             <td class="leftHeader">Comments</td>
@@ -48,10 +98,14 @@
          </tr>
          
     </tbody>
-</table>
+
+</table> -->
 
 
-<table >
+
+ <div class="ticketDetails">
+<table>
+
     <thead></thead>
     <tbody>
 
@@ -80,7 +134,32 @@
             <td class="leftHeader">Comments</td>
             <td>{{ticket.comments}}</td>
          </tr>
+
+         <tr *ngFor = "let comment of comments">
+            <td></td>
+            <td>{{comment.cmnt}}</td>
+            <td>{{comment.epochTime | date:'medium'}}</td>
+            <td>
+               <div *ngIf="comment.clientId != null; else elseBlock">
+                   Client: {{comment.clientId}}
+                 </div>
+                 <ng-template #elseBlock>
+                   Tech: {{comment.techId}}
+                 </ng-template>
+   
+               </td>
+
+        </tr>
+        <tr>
+           
+           <td><app-create-comment-dialog></app-create-comment-dialog></td>
+        </tr>
+
          
     </tbody>
 </table>
+</div>
+
+
+</div>
 

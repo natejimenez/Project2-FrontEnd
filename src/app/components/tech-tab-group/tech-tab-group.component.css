@@ -1,12 +1,18 @@
-.example-small-box, .example-large-box {
+.data-table {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 16px;
     padding: 16px;
     border-radius: 8px;
+    height: 100%; 
+    width: 100%;
+    overflow: auto;
   }
-  
+
+table {
+    width: 100%;
+  }
   /* .example-small-box {
     height: 100px;
     width: 100px;
