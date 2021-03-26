@@ -1,17 +1,22 @@
-<h1>Ticket Handling App</h1>
-<h2>Log into your Account</h2>
-
-<label for="usernameInput">Username</label>
-<input id = "usernameInput" type="text" [(ngModel)]="userName">
-
-<label for="passwordInput">Password</label>
-<input id = "passwordInput" type="text" [(ngModel)]="password">
-
-<button (click) = "loginClient()">Client Log In</button>
-
-<button (click) = "loginTech()">Technician Log In</button>
-
-
-
-
-
+<div class="loginPage">
+<div class="grid-container">
+    <div class="loginArea">
+    <mat-card class="logincard">
+        <mat-card-header>
+            <mat-card-title style="font-size: 30pt;">Ticket Handling App</mat-card-title>
+            <br>
+            <mat-card-subtitle style="font-size: 12pt;">Log into your Account</mat-card-subtitle>
+         </mat-card-header>
+        <div class="loginInputs">    
+            <input id="usernameInput" type="text" [(ngModel)]="userName" placeholder="username">
+            <br>
+            <input id="passwordInput" type="password" [(ngModel)]="password" placeholder="password">
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click) = "loginClient()">Client Log In</button>
+                <button mat-raised-button color="primary" (click) = "loginTech()">Tech Log In</button>
+            </mat-card-actions>
+        </div>
+    </mat-card>
+</div>
+</div>
+</div>

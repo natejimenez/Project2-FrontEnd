@@ -15,11 +15,14 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { CreateTicketDialogComponent } from './components/create-ticket-dialog/create-ticket-dialog.component';
 import { CreateTicketDialogContentComponent } from './components/create-ticket-dialog/create-ticket-dialog-content/create-ticket-dialog-content.component';
 import { TechTicketTableComponent } from './components/tech-ticket-table/tech-ticket-table.component';
+import { AdminTicketTableComponent } from './admin-ticket-table/admin-ticket-table.component';
 import { TechTabGroupComponent } from './components/tech-tab-group/tech-tab-group.component';
 import {MatTab, MatTabsModule} from '@angular/material/tabs';
 import { TechTicketDetailsTableComponent } from './components/tech-ticket-details-table/tech-ticket-details-table.component';
 import { CreateCommentDialogComponent } from './components/create-comment-dialog/create-comment-dialog.component';
 import { CreateCommentContentComponent } from './components/create-comment-dialog/create-comment-content/create-comment-content.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -33,11 +36,13 @@ import { CreateCommentContentComponent } from './components/create-comment-dialo
     CreateTicketDialogComponent,
     CreateTicketDialogContentComponent,
     TechTicketTableComponent,
+    AdminTicketTableComponent,
     TechTabGroupComponent,
     TechTicketDetailsTableComponent,
     CreateCommentDialogComponent,
     CreateCommentContentComponent,
- 
+    TechTicketDetailsTableComponent
+
     
   ],
   imports: [
@@ -47,7 +52,9 @@ import { CreateCommentContentComponent } from './components/create-comment-dialo
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
