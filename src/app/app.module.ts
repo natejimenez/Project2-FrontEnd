@@ -19,9 +19,10 @@ import { AdminTicketTableComponent } from './admin-ticket-table/admin-ticket-tab
 import { TechTabGroupComponent } from './components/tech-tab-group/tech-tab-group.component';
 import {MatTab, MatTabsModule} from '@angular/material/tabs';
 import { TechTicketDetailsTableComponent } from './components/tech-ticket-details-table/tech-ticket-details-table.component';
+import { CreateCommentDialogComponent } from './components/create-comment-dialog/create-comment-dialog.component';
+import { CreateCommentContentComponent } from './components/create-comment-dialog/create-comment-content/create-comment-content.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-
 
 @NgModule({
   declarations: [
@@ -37,9 +38,11 @@ import {MatButtonModule} from '@angular/material/button';
     TechTicketTableComponent,
     AdminTicketTableComponent,
     TechTabGroupComponent,
+    TechTicketDetailsTableComponent,
+    CreateCommentDialogComponent,
+    CreateCommentContentComponent,
     TechTicketDetailsTableComponent
 
- 
     
   ],
   imports: [

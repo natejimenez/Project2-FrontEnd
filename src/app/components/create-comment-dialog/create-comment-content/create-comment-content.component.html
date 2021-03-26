@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Add a new Comment</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Add a new comment to your ticket to provide more information about your ticket, or ask questions about the status of your ticket.</p>
+    <label for="comment">Description:  </label>
+    <input size ="75" id="comment" type="text" [(ngModel)]="comment">
+
+  
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click) = "createComment()" [mat-dialog-close]="true" cdkFocusInitial>Submit Comment</button>
+</mat-dialog-actions>
+
