@@ -1,5 +1,66 @@
-<p>admin-ticket-table works!</p>
-<table>
+<button mat-raised-button color="primary" (click)="refreshTickets()">Refresh Tickets</button>
+
+
+<div class="ticketsTable">  
+  
+  <table mat-table [dataSource]="tickets">
+      
+      <ng-container matColumnDef="clientId">
+          <th mat-header-cell *matHeaderCellDef>Client ID</th>
+          <td mat-cell *matCellDef="let ticket">{{ticket.clientId}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="techId">
+        <th mat-header-cell *matHeaderCellDef>Tech ID</th>
+        <td mat-cell *matCellDef="let ticket">{{ticket.clientId}}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="ticketId">
+          <th mat-header-cell *matHeaderCellDef>Ticket ID</th>
+          <td mat-cell *matCellDef="let ticket">{{ticket.ticketId}}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let ticket">{{ticket.description}}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="priority">
+          <th mat-header-cell *matHeaderCellDef>Priority</th>
+          <td mat-cell *matCellDef="let ticket">{{ticket.priority}}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="epochStart">
+          <th mat-header-cell *matHeaderCellDef>poch Start</th>
+          <td mat-cell *matCellDef="let ticket">{{ticket.epochStart | date:'medium'}}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="epochEnd">
+          <th mat-header-cell *matHeaderCellDef>Epoch End</th>
+          <td mat-cell *matCellDef="let ticket"><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
+      </ng-container>
+      
+      <ng-container matColumnDef="assign">
+          <th mat-header-cell *matHeaderCellDef>Assign</th>
+          <td mat-cell *matCellDef="let ticket"><button mat-raised-button color="primary" (click) = "assignTicket(ticket.ticketId)">Assign</button></td>
+      </ng-container>
+
+      <ng-container matColumnDef="escalate">
+        <th mat-header-cell *matHeaderCellDef>Escalate</th>
+        <td mat-cell *matCellDef="let ticket"><button mat-raised-button color="primary" (click) = "escalateTicket(ticket)">Escalate</button></td>
+      </ng-container>
+
+      <ng-container matColumnDef="close">
+        <th mat-header-cell *matHeaderCellDef>Close</th>
+        <td mat-cell *matCellDef="let ticket"><button mat-raised-button color="primary" (click) = "closeTicket(ticket)">Close</button></td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      
+  </table>
+  </div>
+<!-- <table>
 
     <thead><th>ClientID</th><th>TechnicianID</th><th>ID</th><th>Priority</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th><th>Assign</th><th>Escalate</th><th>Close</th></thead>
 <tbody>
@@ -19,4 +80,4 @@
     </tr>
 </tbody>
 </table>
-<button (click)="refreshTickets()">Refresh Tickets</button>
+ -->

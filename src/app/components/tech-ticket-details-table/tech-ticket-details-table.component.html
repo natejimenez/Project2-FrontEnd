@@ -1,4 +1,3 @@
-<p>tech-ticket-details-table works!</p>
 <button mat-raised-button color="primary" (click) = "refreshTickets()">Refresh Table</button>
 
 <table mat-table [dataSource]="tickets">
@@ -35,15 +34,15 @@
     
     <ng-container matColumnDef="escalate">
         <th mat-header-cell *matHeaderCellDef>Escalate</th>
-        <td mat-cell *matCellDef="let ticket"><button mat-raised-button color="primary" (click) = "getTicket(ticket.ticketId)">See Details</button></td>
+        <td mat-cell *matCellDef="let ticket"><button mat-raised-button color="primary" (click) = "escalateTicket(ticket)">Escalate</button></td>
     </ng-container>
     
     <ng-container matColumnDef="close">
         <th mat-header-cell *matHeaderCellDef>Close</th>
-        <td mat-cell *matCellDef="let ticket"><button mat-raised-button color="primary" (click) = "escalateTicket(ticket)">Assign</button></td>
+        <td mat-cell *matCellDef="let ticket"><button mat-raised-button color="primary" (click) = "closeTicket(ticket)">Close</button></td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" (click) = "getTicket(ticket.ticketId)" (click) = "assignTicket(ticket.ticketId)"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     
 </table>
