@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TechTicket } from '../models/techticket';
-import { Ticket } from '../models/ticket';
-import { LoginService } from '../services/login.service';
-import { TicketService } from '../services/ticket.service';
+import { TechTicket } from 'src/app/models/techticket';
+import { Ticket } from 'src/app/models/ticket';
+import { LoginService } from 'src/app/services/login.service';
+import { TicketService } from 'src/app/services/ticket.service';
 
 @Component({
   selector: 'app-admin-ticket-table',
