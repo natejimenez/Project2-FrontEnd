@@ -10,6 +10,13 @@
     overflow: auto;
   }
 
+  tr.row:hover {
+    background: blue;
+  }
+  
+  tr.row:active {
+    background: #efefef;
+  }
 table {
     width: 100%;
   }
