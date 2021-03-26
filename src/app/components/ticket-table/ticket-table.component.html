@@ -1,4 +1,10 @@
 <p>ticket-table works!</p>
+
+<div class="grid-container">
+  <div class="ticketsTable">
+    
+    
+<button (click)="refreshTickets()">Refresh Tickets</button>
 <div class="data-table mat-elevation-z8" >
 <table mat-table [dataSource]="tickets">
 
@@ -37,7 +43,12 @@
 
 </table>
 </div>
+</div>
 <!-- <table>
+
+
+<table>
+
 
     <thead><th>ID</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th></thead>
 <tbody>
@@ -51,8 +62,9 @@
 
     </tr>
 </tbody>
-</table> -->
-<button (click)="refreshTickets()">Refresh Tickets</button>
+
+
+
 
 <!-- <table >
     <thead></thead>
@@ -86,10 +98,14 @@
          </tr>
          
     </tbody>
+
 </table> -->
 
 
-<table >
+
+ <div class="ticketDetails">
+<table>
+
     <thead></thead>
     <tbody>
 
@@ -118,7 +134,32 @@
             <td class="leftHeader">Comments</td>
             <td>{{ticket.comments}}</td>
          </tr>
+
+         <tr *ngFor = "let comment of comments">
+            <td></td>
+            <td>{{comment.cmnt}}</td>
+            <td>{{comment.epochTime | date:'medium'}}</td>
+            <td>
+               <div *ngIf="comment.clientId != null; else elseBlock">
+                   Client: {{comment.clientId}}
+                 </div>
+                 <ng-template #elseBlock>
+                   Tech: {{comment.techId}}
+                 </ng-template>
+   
+               </td>
+
+        </tr>
+        <tr>
+           
+           <td><app-create-comment-dialog></app-create-comment-dialog></td>
+        </tr>
+
          
     </tbody>
 </table>
+</div>
+
+
+</div>
 
