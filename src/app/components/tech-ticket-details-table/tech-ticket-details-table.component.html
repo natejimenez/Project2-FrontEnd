@@ -1,0 +1,20 @@
+<p>tech-ticket-details-table works!</p>
+<button (click) = "refreshTickets()">Refresh Table</button>
+<table>
+
+    <thead><th>ClientID</th><th>Ticket ID</th><th>Priority</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th><th>Escalate</th><th>Close</th></thead>
+<tbody>
+    <tr *ngFor="let ticket of tickets">
+        
+        <td>{{ticket.clientId}}</td>
+        <td>{{ticket.ticketId}}</td>
+        <td>{{ticket.priority}}</td>
+        <td>{{ticket.description}}</td>
+        <td>{{ticket.epochStart}}</td>
+        <td>{{ticket.epochEnd}}</td>
+        <td><button (click) = "escalateTicket(ticket)">Escalate</button></td>
+        <td><button (click) = "closeTicket(ticket)">Close</button></td>
+  
+    </tr>
+</tbody>
+</table>
