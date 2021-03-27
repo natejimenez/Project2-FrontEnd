@@ -11,6 +11,7 @@
   .ticketsTable { grid-area: ticketsTable; }
 .ticketDetails { grid-area: ticketDetails; }
 
+
 .pointer {
     cursor: pointer;
 }

@@ -31,7 +31,15 @@
                 <td>{{ticket.ticketId}}</td>
                 <td>{{ticket.description}}</td>
                 <td>{{ticket.epochStart | date:'medium'}}</td>
-                <td><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
+                <td>
+                    <div *ngIf="ticket.epochEnd>0; else elseBlock">
+                        {{ticket.epochEnd | date:'medium'}}
+                      </div>
+                      <ng-template #elseBlock>
+                        Pending
+                      </ng-template>
+        
+                    </td>
                 
         
         
