@@ -1,0 +1,45 @@
+
+<div class="grid-container">
+    <div class="ticketsTable">
+        <button (click)="refreshTechs()">Refresh Technicians</button>
+<table>
+
+    <thead><th>User ID</th><th>Name</th><th>Username</th><th>Type</th></thead>
+<tbody>
+    <tr *ngFor="let technician of technicians">
+        <td>{{technician.id}}</td>
+        <td>{{technician.displayName}}</td>
+        <td>{{technician.userName}}</td>
+        <td>{{technician.type}}</td>
+        <td><button  (click) = "getTicketsOfTech(technician.id)">See Tickets</button></td>
+
+        
+  
+    </tr>
+</tbody>
+</table>
+    </div>
+    <div class="ticketDetails">
+        <table>
+
+
+            <thead><th>ID</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th></thead>
+        <tbody>
+            <tr *ngFor="let ticket of tickets">
+        
+                <td>{{ticket.ticketId}}</td>
+                <td>{{ticket.description}}</td>
+                <td>{{ticket.epochStart | date:'medium'}}</td>
+                <td><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
+                
+        
+        
+            </tr>
+        </tbody>
+        
+        </table>
+    </div>
+  </div>
+
+
+

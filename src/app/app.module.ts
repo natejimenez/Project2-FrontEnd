@@ -24,6 +24,8 @@ import { CreateCommentDialogComponent } from './components/create-comment-dialog
 import { CreateCommentContentComponent } from './components/create-comment-dialog/create-comment-content/create-comment-content.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import { TechnicianTableComponent } from './components/technician-table/technician-table.component';
+import { AdminTabGroupComponent } from './components/admin-tab-group/admin-tab-group.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import {MatButtonModule} from '@angular/material/button';
     TechTicketDetailsTableComponent,
     CreateCommentDialogComponent,
     CreateCommentContentComponent,
-    TechTicketDetailsTableComponent
+    TechTicketDetailsTableComponent,
+    TechnicianTableComponent,
+    AdminTabGroupComponent
 
     
   ],
