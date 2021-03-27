@@ -1,7 +1,7 @@
 <p>ticket-table works!</p>
 
 <div class="grid-container">
-  <div class="ticketsTable">
+  <div class="ticketsTable pointer">
     
     
 <button (click)="refreshTickets()">Refresh Tickets</button>
@@ -9,98 +9,37 @@
 <table mat-table [dataSource]="tickets">
 
 <ng-container matColumnDef="ticketId">
-    <th mat-header-cell *matHeaderCellDef>Ticket ID</th>
+    <th mat-header-cell *matHeaderCellDef class="ticketTableHead" style="font-weight: 900;">Ticket ID</th>
     <td mat-cell *matCellDef="let ticket">{{ticket.ticketId}}</td>
 </ng-container>
 
 <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <th mat-header-cell *matHeaderCellDef class="ticketTableHead" style="font-weight: 900;">Description</th>
     <td mat-cell *matCellDef="let ticket">{{ticket.description}}</td>
 </ng-container>
 
 <ng-container matColumnDef="priority">
-    <th mat-header-cell *matHeaderCellDef>Priority</th>
+    <th mat-header-cell *matHeaderCellDef class="ticketTableHead" style="font-weight: 900;">Priority</th>
     <td mat-cell *matCellDef="let ticket">{{ticket.priority}}</td>
 </ng-container>
 
 <ng-container matColumnDef="epochStart">
-    <th mat-header-cell *matHeaderCellDef>poch Start</th>
+    <th mat-header-cell *matHeaderCellDef class="ticketTableHead" style="font-weight: 900;">Epoch Start</th>
     <td mat-cell *matCellDef="let ticket">{{ticket.epochStart | date:'medium'}}</td>
 </ng-container>
 
 <ng-container matColumnDef="epochEnd">
-    <th mat-header-cell *matHeaderCellDef>Epoch End</th>
+    <th mat-header-cell *matHeaderCellDef class="ticketTableHead" style="font-weight: 900;">Epoch End</th>
     <td mat-cell *matCellDef="let ticket"><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
 </ng-container>
 
-<ng-container matColumnDef="details">
-    <th mat-header-cell *matHeaderCellDef>Details</th>
-    <td mat-cell *matCellDef="let ticket"><button mat-raised-button color="primary" (click) = "getTicket(ticket.ticketId)">See Details</button></td>
-</ng-container>
 
 <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" (click) = "getTicket(ticket.ticketId)"></tr>
-<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="getTicket(row.ticketId)" class="pointer"></tr>
 
 </table>
 </div>
 </div>
-<!-- <table>
-
-
-<table>
-
-
-    <thead><th>ID</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th></thead>
-<tbody>
-    <tr *ngFor="let ticket of tickets">
-
-        <td>{{ticket.ticketId}}</td>
-        <td>{{ticket.description}}</td>
-        <td>{{ticket.epochStart | date:'medium'}}</td>
-        <td><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
-        <td><button class="btn btn-outline-dark" (click) = "getTicket(ticket.ticketId)">See Details</button></td>
-
-    </tr>
-</tbody>
-
-
-
-
-<!-- <table >
-    <thead></thead>
-    <tbody>
-
-        <tr>
-            <td class="leftHeader">Ticket ID</td>          
-            <td>{{ticket.ticketId}}</td>
-            
-        </tr>
-        <tr>
-            <td class="leftHeader">Client ID</td>
-            <td>{{ticket.clientId}}</td>
-         </tr>
-        <tr>
-            <td class="leftHeader">Description</td>
-            <td>{{ticket.description}}</td>
-        </tr>
-        <tr>
-            <td class="leftHeader">Date Submitted</td>
-            <td>{{ticket.epochStart | date:'medium'}}</td>
-            
-        </tr>
-        <tr>
-            <td class="leftHeader">Date Completed</td>
-        <td><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
-        </tr>
-         <tr>
-            <td class="leftHeader">Comments</td>
-            <td>{{ticket.comments}}</td>
-         </tr>
-         
-    </tbody>
-
-</table> -->
-
 
 
  <div class="ticketDetails">

@@ -8,12 +8,12 @@ import { CommentService } from 'src/app/services/comment.service';
 @Component({
   selector: 'app-ticket-table',
   templateUrl: './ticket-table.component.html',
-  styleUrls: ['./ticket-table.component.css']
+  styleUrls: ['./ticket-table.component.scss']
 })
 export class TicketTableComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['ticketId', 'description', 'priority', 'epochStart', 'epochEnd', 'details'];
+  displayedColumns: string[] = ['ticketId', 'description', 'priority', 'epochStart', 'epochEnd'];
   comments:Comment[] = []
   tickets:Ticket[] = []
   ticket:Ticket = {ticketId:0,description:'',priority:0,epochStart:0,epochEnd:0,comments:[],clientId:0}
