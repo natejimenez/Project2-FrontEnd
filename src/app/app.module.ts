@@ -24,11 +24,12 @@ import { CreateCommentDialogComponent } from './components/create-comment-dialog
 import { CreateCommentContentComponent } from './components/create-comment-dialog/create-comment-content/create-comment-content.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import { TechnicianTableComponent } from './components/technician-table/technician-table.component';
+import { TechnicianTableComponent } from 'src/app/components/technician-table/technician-table.component';
 import { AdminTabGroupComponent } from './components/admin-tab-group/admin-tab-group.component';
 import { AssignTicketDialogComponent } from './components/assign-ticket-dialog/assign-ticket-dialog.component';
 import { AssignTicketDialogContentComponent } from './components/assign-ticket-dialog/assign-ticket-dialog-content/assign-ticket-dialog-content.component';
 import {MatSelectModule} from '@angular/material/select';
+import { LogoutBoxComponent } from './components/logout-box/logout-box.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {MatSelectModule} from '@angular/material/select';
     TechnicianTableComponent,
     AdminTabGroupComponent,
     AssignTicketDialogComponent,
-    AssignTicketDialogContentComponent
+    AssignTicketDialogContentComponent,
+    LogoutBoxComponent
 
     
   ],
