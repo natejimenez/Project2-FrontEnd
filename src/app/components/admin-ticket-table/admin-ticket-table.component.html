@@ -12,7 +12,15 @@
         <td>{{ticket.priority}}</td>
         <td>{{ticket.description}}</td>
         <td>{{ticket.epochStart | date:'shortDate'}}</td>
-        <td>{{ticket.epochEnd | date:'shortDate'}}</td>
+        <td>
+            <div *ngIf="ticket.epochEnd>0; else elseBlock">
+                {{ticket.epochEnd | date:'shortDate'}}
+              </div>
+              <ng-template #elseBlock>
+                Pending
+              </ng-template>
+
+            </td>
         <td><button (click) = "escalateTicket(ticket)" class = "pointer">Escalate</button></td>
         <td><button (click) = "closeTicket(ticket)"class = "pointer">Close</button></td>
         
@@ -48,15 +56,27 @@
             </tr>
             <tr>
                 <td class="leftHeader">Date Completed</td>
-                <td><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
+                <td>
+                    <div *ngIf="ticket.epochEnd>0; else elseBlock">
+                        {{ticket.epochEnd | date:'medium'}}
+                      </div>
+                      <ng-template #elseBlock>
+                        Pending
+                      </ng-template>
+        
+                    </td>
 
             </tr>
              <tr>
                 <td class="leftHeader"><h2>Comments: </h2></td>
              </tr>
+             <tr *ngIf = "comments.length!=0; else elseBlock1"><th>Description</th><th>Time</th><th>User</th></tr>
+             <ng-template #elseBlock1>
+                 No comments yet
+             </ng-template>
              <tr *ngFor = "let comment of comments">
                  <td>{{comment.cmnt}}</td>
-                 <td>{{comment.epochTime | date:'medium'}}</td>
+                 <td>{{comment.epochTime | date:'short'}}</td>
                  <td>
                     <div *ngIf="comment.clientId != null; else elseBlock">
                         Client: {{comment.clientId}}
