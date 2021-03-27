@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Assign Ticket to a Technician</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Enter a Technician Id to assign this ticket to that Technician</p>
+  <mat-label>Select a Tech</mat-label>
+  <mat-select [(value)]="techId">
+    <mat-option *ngFor = "let technician of technicians"value="technician.id">{{technician.id}}</mat-option>
+  </mat-select>
+
+  
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click) = "assignTicket()" [mat-dialog-close]="true" cdkFocusInitial>Assign</button>
+</mat-dialog-actions>
+
+

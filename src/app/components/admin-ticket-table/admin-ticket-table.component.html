@@ -1,22 +1,83 @@
-<p>admin-ticket-table works!</p>
+<div class = "grid-container">
+
+<div class="ticketsTable">
+<button (click)="refreshTickets()">Refresh Tickets</button>
 <table>
 
-    <thead><th>ClientID</th><th>TechnicianID</th><th>ID</th><th>Priority</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th><th>Assign</th><th>Escalate</th><th>Close</th></thead>
+    <thead><th>ClientID</th><th>ID</th><th>Priority</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th><th>Escalate</th><th>Close</th></thead>
 <tbody>
-    <tr *ngFor="let ticket of tickets">
+    <tr *ngFor="let ticket of tickets"(click)="getTicket(ticket.ticketId)" class = "pointer">
         <td>{{ticket.clientId}}</td>
-        <td>TechnicianID</td>
         <td>{{ticket.ticketId}}</td>
         <td>{{ticket.priority}}</td>
         <td>{{ticket.description}}</td>
-        <td>{{ticket.epochStart}}</td>
-        <td>{{ticket.epochEnd}}</td>
-        <td><button (click) = "assignTicket(ticket.ticketId)">Assign</button></td>
-        <td><button (click) = "escalateTicket(ticket)">Escalate</button></td>
-        <td><button (click) = "closeTicket(ticket)">Close</button></td>
+        <td>{{ticket.epochStart | date:'shortDate'}}</td>
+        <td>{{ticket.epochEnd | date:'shortDate'}}</td>
+        <td><button (click) = "escalateTicket(ticket)" class = "pointer">Escalate</button></td>
+        <td><button (click) = "closeTicket(ticket)"class = "pointer">Close</button></td>
         
   
     </tr>
 </tbody>
 </table>
-<button (click)="refreshTickets()">Refresh Tickets</button>
+</div>
+
+<div class="ticketDetails">
+    <h2>Select a Ticket to View Details</h2>
+    <table >
+        <thead></thead>
+        <tbody>
+            <tr><td><app-assign-ticket-dialog></app-assign-ticket-dialog></td><td><app-create-comment-dialog></app-create-comment-dialog></td></tr>
+    
+            <tr>
+                <td class="leftHeader">Ticket ID</td>          
+                <td>{{ticket.ticketId}}</td>
+                
+            </tr>
+            <tr>
+                <td class="leftHeader">Client ID</td>
+                <td>{{ticket.clientId}}</td>
+             </tr>
+            <tr>
+                <td class="leftHeader">Description</td>
+                <td>{{ticket.description}}</td>
+            </tr>
+            <tr>
+                <td class="leftHeader">Date Submitted</td>
+                <td>{{ticket.epochStart | date:'medium'}}</td>
+            </tr>
+            <tr>
+                <td class="leftHeader">Date Completed</td>
+                <td><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
+
+            </tr>
+             <tr>
+                <td class="leftHeader"><h2>Comments: </h2></td>
+             </tr>
+             <tr *ngFor = "let comment of comments">
+                 <td>{{comment.cmnt}}</td>
+                 <td>{{comment.epochTime | date:'medium'}}</td>
+                 <td>
+                    <div *ngIf="comment.clientId != null; else elseBlock">
+                        Client: {{comment.clientId}}
+                      </div>
+                      <ng-template #elseBlock>
+                        Tech: {{comment.techId}}
+                      </ng-template>
+        
+                    </td>
+
+             </tr>
+             <tr>
+                
+                
+             </tr>
+             
+        </tbody>
+    </table>
+    
+    
+</div>
+
+</div>
+

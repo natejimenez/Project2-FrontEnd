@@ -24,6 +24,11 @@ import { CreateCommentDialogComponent } from './components/create-comment-dialog
 import { CreateCommentContentComponent } from './components/create-comment-dialog/create-comment-content/create-comment-content.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import { TechnicianTableComponent } from './components/technician-table/technician-table.component';
+import { AdminTabGroupComponent } from './components/admin-tab-group/admin-tab-group.component';
+import { AssignTicketDialogComponent } from './components/assign-ticket-dialog/assign-ticket-dialog.component';
+import { AssignTicketDialogContentComponent } from './components/assign-ticket-dialog/assign-ticket-dialog-content/assign-ticket-dialog-content.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,11 @@ import {MatButtonModule} from '@angular/material/button';
     TechTicketDetailsTableComponent,
     CreateCommentDialogComponent,
     CreateCommentContentComponent,
-    TechTicketDetailsTableComponent
+    TechTicketDetailsTableComponent,
+    TechnicianTableComponent,
+    AdminTabGroupComponent,
+    AssignTicketDialogComponent,
+    AssignTicketDialogContentComponent
 
     
   ],
@@ -56,7 +65,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatTabsModule,
     MatTableModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
