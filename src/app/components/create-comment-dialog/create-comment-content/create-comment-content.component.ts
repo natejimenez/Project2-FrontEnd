@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommentService } from 'src/app/services/comment.service';
-import { Comment } from 'src/app/models/comment'
+import { Comment } from 'src/app/models/comment';
 import { TicketService } from 'src/app/services/ticket.service';
 
 @Component({
