@@ -11,7 +11,8 @@ import { TicketService } from 'src/app/services/ticket.service';
   styleUrls: ['./technician-table.component.css']
 })
 export class TechnicianTableComponent implements OnInit {
-
+  displayedColumns: string[] = ['id', 'dispname', 'uname', 'type', 'tickets'];
+  displayedColumns2: string[] = ['id', 'description', 'start', 'end'];
   technicians:Technician[] = []
   tickets:Ticket[] = []
  
