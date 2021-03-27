@@ -13,6 +13,9 @@ import { Comment } from 'src/app/models/comment'
 })
 export class AdminTicketTableComponent implements OnInit {
 
+  displayedColumns: string[] = ['clientId', 'ticketId', 'description', 'priority', 'epochStart', 'epochEnd', 'escalate', 'close'];
+
+
   tickets:Ticket[] = []
   techticket:TechTicket[]=[]
   comments:Comment[] = []
