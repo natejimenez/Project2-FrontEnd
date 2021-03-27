@@ -15,5 +15,10 @@ export class TechnicianService {
     return technicians
   }
 
+  async getTech(id:number):Promise<Technician>{
+    const technician:Technician = await this.http.get<Technician>(`http://localhost:8081/tech?id=${id}`).toPromise();
+    return technician
+  }
+
 
 }

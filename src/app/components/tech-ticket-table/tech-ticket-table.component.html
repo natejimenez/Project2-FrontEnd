@@ -28,13 +28,13 @@
     </ng-container>
     
     <ng-container matColumnDef="epochStart">
-        <th mat-header-cell *matHeaderCellDef>poch Start</th>
-        <td mat-cell *matCellDef="let ticket">{{ticket.epochStart | date:'medium'}}</td>
+        <th mat-header-cell *matHeaderCellDef>Date Submitted</th>
+        <td mat-cell *matCellDef="let ticket">{{ticket.epochStart | date:'shortDate'}}</td>
     </ng-container>
     
     <ng-container matColumnDef="epochEnd">
-        <th mat-header-cell *matHeaderCellDef>Epoch End</th>
-        <td mat-cell *matCellDef="let ticket"><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
+        <th mat-header-cell *matHeaderCellDef>Date Completed</th>
+        <td mat-cell *matCellDef="let ticket"><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'shortDate'}}</div></td>
     </ng-container>
     
     <ng-container matColumnDef="details">

@@ -26,6 +26,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { TechnicianTableComponent } from './components/technician-table/technician-table.component';
 import { AdminTabGroupComponent } from './components/admin-tab-group/admin-tab-group.component';
+import { AssignTicketDialogComponent } from './components/assign-ticket-dialog/assign-ticket-dialog.component';
+import { AssignTicketDialogContentComponent } from './components/assign-ticket-dialog/assign-ticket-dialog-content/assign-ticket-dialog-content.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,9 @@ import { AdminTabGroupComponent } from './components/admin-tab-group/admin-tab-g
     CreateCommentContentComponent,
     TechTicketDetailsTableComponent,
     TechnicianTableComponent,
-    AdminTabGroupComponent
+    AdminTabGroupComponent,
+    AssignTicketDialogComponent,
+    AssignTicketDialogContentComponent
 
     
   ],
@@ -60,7 +65,8 @@ import { AdminTabGroupComponent } from './components/admin-tab-group/admin-tab-g
     MatTabsModule,
     MatTableModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -20,12 +20,13 @@
 </table>
     </div>
     <div class="ticketDetails">
+        <h2>All Tickets for Selected Technician</h2>
         <table>
-
 
             <thead><th>ID</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th></thead>
         <tbody>
             <tr *ngFor="let ticket of tickets">
+                
         
                 <td>{{ticket.ticketId}}</td>
                 <td>{{ticket.description}}</td>
