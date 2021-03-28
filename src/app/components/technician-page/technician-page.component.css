@@ -10,5 +10,6 @@
       "ticketHandling ticketHandling ticketHandling ticketHandling"
       "ticketHandling ticketHandling ticketHandling ticketHandling";
   }
+  
   .logoutHeader { grid-area: logoutHeader; }
   .ticketHandling { grid-area: ticketHandling; }
