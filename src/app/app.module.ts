@@ -28,7 +28,9 @@ import { TechnicianTableComponent } from 'src/app/components/technician-table/te
 import { AdminTabGroupComponent } from './components/admin-tab-group/admin-tab-group.component';
 import { AssignTicketDialogComponent } from './components/assign-ticket-dialog/assign-ticket-dialog.component';
 import { AssignTicketDialogContentComponent } from './components/assign-ticket-dialog/assign-ticket-dialog-content/assign-ticket-dialog-content.component';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSortModule } from '@angular/material/sort';
+import { PriorityPipe } from './priority.pipe';
 import { LogoutBoxComponent } from './components/logout-box/logout-box.component';
 
 @NgModule({
@@ -53,7 +55,9 @@ import { LogoutBoxComponent } from './components/logout-box/logout-box.component
     AdminTabGroupComponent,
     AssignTicketDialogComponent,
     AssignTicketDialogContentComponent,
+    PriorityPipe,
     LogoutBoxComponent
+
 
     
   ],
@@ -68,7 +72,8 @@ import { LogoutBoxComponent } from './components/logout-box/logout-box.component
     MatTableModule,
     MatCardModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
