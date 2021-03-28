@@ -1,6 +1,6 @@
 <button mat-raised-button color="primary" (click) = "refreshTickets()">Refresh Table</button>
 
-<table mat-table [dataSource]="dataSource">
+<table mat-table [dataSource]="dataSource" matSort>
     
     <ng-container matColumnDef="clientId">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Client ID</th>
