@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TechTicket } from 'src/app/models/techticket';
 import { Ticket } from 'src/app/models/ticket';
 import { CommentService } from 'src/app/services/comment.service';
 import { LoginService } from 'src/app/services/login.service';
 import { TicketService } from 'src/app/services/ticket.service';
-import { Comment } from 'src/app/models/comment'
+import { Comment } from 'src/app/models/comment';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table'
+
 
 @Component({
   selector: 'app-admin-ticket-table',
@@ -14,19 +17,19 @@ import { Comment } from 'src/app/models/comment'
 export class AdminTicketTableComponent implements OnInit {
 
   displayedColumns: string[] = ['clientId', 'ticketId', 'description', 'priority', 'epochStart', 'epochEnd', 'escalate', 'close'];
-
+  
 
   tickets:Ticket[] = []
   techticket:TechTicket[]=[]
   comments:Comment[] = []
   ticket:Ticket = {ticketId:0,description:'',priority:0,epochStart:0,epochEnd:0,comments:[],clientId:0}
-  
   constructor(private ticketService:TicketService,private loginService:LoginService,private commentService:CommentService) { }
-
+  dataSource:any
+  @ViewChild(MatSort) sort: MatSort;
   ngOnInit(): void {
-    this.refreshTickets()
+    this.refreshTickets();
   }
-
+  
   async refreshTickets(){
     let id = 0
     let decoded;
@@ -36,6 +39,8 @@ export class AdminTicketTableComponent implements OnInit {
 
     }
     this.tickets = await this.ticketService.getAllTickets()
+    this.dataSource = new MatTableDataSource(this.tickets);
+    this.dataSource.sort = this.sort;
   }
    
 

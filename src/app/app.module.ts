@@ -28,7 +28,9 @@ import { TechnicianTableComponent } from './components/technician-table/technici
 import { AdminTabGroupComponent } from './components/admin-tab-group/admin-tab-group.component';
 import { AssignTicketDialogComponent } from './components/assign-ticket-dialog/assign-ticket-dialog.component';
 import { AssignTicketDialogContentComponent } from './components/assign-ticket-dialog/assign-ticket-dialog-content/assign-ticket-dialog-content.component';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSortModule } from '@angular/material/sort';
+import { PriorityPipe } from './priority.pipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import {MatSelectModule} from '@angular/material/select';
     TechnicianTableComponent,
     AdminTabGroupComponent,
     AssignTicketDialogComponent,
-    AssignTicketDialogContentComponent
+    AssignTicketDialogContentComponent,
+    PriorityPipe
 
     
   ],
@@ -66,7 +69,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatTableModule,
     MatCardModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
