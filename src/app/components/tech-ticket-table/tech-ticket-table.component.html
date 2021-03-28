@@ -1,7 +1,7 @@
 <div class="grid-container">
 <div class="ticketsTable">
 
-  <button mat-raised-button color="primary" (click)="refreshTickets()">Refresh Table</button>
+  <button mat-raised-button color="accent" (click)="refreshTickets()">Refresh Table</button>
 
 
 <table mat-table [dataSource]="dataSource" matSort>
@@ -42,7 +42,7 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns" (click) = "getTicket(row.ticketId)"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" (click) = "getTicket(row.ticketId)" class = "pointer"></tr>
     
 </table>
 </div>
@@ -54,40 +54,43 @@
             <tbody>
         
                 <tr>
-                    <td class="leftHeader">Pri</td>          
-                    <td>{{ticket.priority}}</td>
+                    <td class="leftHeader">Priority:</td>          
+                    <td>{{ticket.priority | priority}}</td>
                     
                 </tr>
 
                 <tr>
-                    <td class="leftHeader">Ticket ID</td>          
+                    <td class="leftHeader">Ticket ID:</td>          
                     <td>{{ticket.ticketId}}</td>
                     
                 </tr>
                 <tr>
-                    <td class="leftHeader">Client ID</td>
+                    <td class="leftHeader">Client ID:</td>
                     <td>{{ticket.clientId}}</td>
                  </tr>
                 <tr>
-                    <td class="leftHeader">Description</td>
+                    <td class="leftHeader">Description:</td>
                     <td>{{ticket.description}}</td>
                 </tr>
                 <tr>
-                    <td class="leftHeader">Date Submitted</td>
+                    <td class="leftHeader">Date Submitted:</td>
                     <td>{{ticket.epochStart | date:'medium'}}</td>
                 </tr>
                 <tr>
-                    <td class="leftHeader">Date Completed</td>
+                    <td class="leftHeader">Date Completed:</td>
                     <td><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
 
                 </tr>
-                 <tr>
-                    <td class="leftHeader">Comments</td>
+                <tr>
+                    <td class="leftHeader"><h2>Comments: </h2></td>
                  </tr>
+                 <tr *ngIf = "comments.length!=0; else elseBlock1"><th>Description</th><th>Time</th><th>User</th></tr>
+                 <ng-template #elseBlock1>
+                     No comments yet
+                 </ng-template>
                  <tr *ngFor = "let comment of comments">
-                     <td></td>
                      <td>{{comment.cmnt}}</td>
-                     <td>{{comment.epochTime | date:'medium'}}</td>
+                     <td>{{comment.epochTime | date:'short'}}</td>
                      <td>
                         <div *ngIf="comment.clientId != null; else elseBlock">
                             Client: {{comment.clientId}}
@@ -97,7 +100,7 @@
                           </ng-template>
             
                         </td>
-
+    
                  </tr>
                  <tr>
                     

@@ -1,12 +1,14 @@
 .grid-container {
+  background-color: #FFF9C4;
     display: grid;
-    grid-template-columns: 1fr 2.7fr 0.1fr 1fr;
+    grid-template-columns: 0.5fr 1fr 2.7fr 0.1fr 1fr;
     grid-template-rows: 0.1fr 1.9fr 1fr;
     gap: 0px 0px;
     grid-template-areas:
-      ". . logoutHeader logoutHeader"
-      "ticketHandling ticketHandling ticketHandling ticketHandling"
-      "ticketHandling ticketHandling ticketHandling ticketHandling";
+      ". . . logoutHeader logoutHeader"
+      ". ticketHandling ticketHandling ticketHandling ticketHandling"
+      ". ticketHandling ticketHandling ticketHandling ticketHandling";
   }
   .logoutHeader { grid-area: logoutHeader; }
   .ticketHandling { grid-area: ticketHandling; }
+

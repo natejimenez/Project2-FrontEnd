@@ -1,0 +1,22 @@
+table {
+    width: 100%;
+  }
+  .mat-row {
+    height: auto;
+  }
+  .mat-row:hover{
+    background-color:#B39DDB;
+  }
+  
+  .mat-cell {
+    padding: 8px 50px 8px 0;
+  }
+  .mat-header-row{
+    background-color: #FFE57F;
+  }
+
+  .pointer {
+    cursor: pointer;
+    background-color: #D1C4E9;
+    
+  }

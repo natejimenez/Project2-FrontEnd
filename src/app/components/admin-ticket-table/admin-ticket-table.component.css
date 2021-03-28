@@ -4,13 +4,36 @@
     grid-template-rows: 0.2fr 1.8fr 1fr;
     gap: 0px 0px;
     grid-template-areas:
-      "ticketsTable ticketsTable ticketsTable . ."
       "ticketsTable ticketsTable ticketsTable . ticketDetails"
+      "ticketsTable ticketsTable ticketsTable . ."
       ". . . . .";
   }
-  .ticketsTable { grid-area: ticketsTable; }
+  .ticketsTable { grid-area: ticketsTable; overflow: auto;}
 .ticketDetails { grid-area: ticketDetails; }
 
 .pointer {
     cursor: pointer;
+    background-color: #D1C4E9;
+}
+table {
+  width: 100%;
+}
+.mat-row {
+  height: auto;
+}
+.mat-row:hover{
+  background-color:#B39DDB;
+}
+
+.mat-cell {
+  padding: 8px 50px 8px 0;
+}
+.mat-header-row{
+  background-color: #FFE57F;
+}
+
+.pointer {
+  cursor: pointer;
+  background-color: #D1C4E9;
+  
 }

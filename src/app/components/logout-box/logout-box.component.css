@@ -1,5 +1,13 @@
 .logout {
     max-width: 400px;
     text-align: center;
+    background-color:#5d2db6;
+
+  }
+  .mat-card-title{
+    color:rgba(255, 255, 255, 0.89)
+  }
+  .mat-card-subtitle{
+    color:rgba(255, 255, 255, 0.842)
   }
   
