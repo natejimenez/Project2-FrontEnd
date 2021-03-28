@@ -1,5 +1,6 @@
 <button mat-raised-button color="accent" (click) = "refreshTickets()">Refresh Table</button>
 
+<div class="scrollTable">
 <table mat-table [dataSource]="dataSource" matSort>
     
     <ng-container matColumnDef="clientId">
@@ -54,3 +55,4 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns" class = "pointer"></tr>
     
 </table>
+</div>

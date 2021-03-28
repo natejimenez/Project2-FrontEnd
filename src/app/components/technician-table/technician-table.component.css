@@ -11,7 +11,16 @@
   
   .ticketsTable { grid-area: ticketsTable;}
   .ticketDetails { grid-area: ticketDetails; }
-
+  .ticketDetails{
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+  }
+  .ticketsTable {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+  }
   table {
     width: 100%;
   }
