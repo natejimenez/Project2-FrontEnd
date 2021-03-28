@@ -93,7 +93,7 @@ export class TicketService {
                 "Authorization": jwt
             }
         }
-
+    console.log(ticket)
     ticket = await this.http.put<Ticket>(`http://localhost:8081/tech/ticket`,ticket,details).toPromise();
         return ticket
   }
