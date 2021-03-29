@@ -12,7 +12,7 @@ export class LoginService {
   async clientLogin(credential:Credential){
 
     try{
-      let clientJwt = await this.http.post<string>("http://34.72.131.97:8081/client/login",credential,{responseType:'text' as 'json'}).toPromise();
+      let clientJwt = await this.http.post<string>("https://nodal-pixel-309121.uc.r.appspot.com/client/login",credential,{responseType:'text' as 'json'}).toPromise();
       return clientJwt
     }catch(e : any) {
       alert("Incorrect credentials");
@@ -23,7 +23,7 @@ export class LoginService {
   async techLogin(credential:Credential){
 
     try{
-      let techJwt = await this.http.post<string>("http://34.72.131.97:8081/tech/login",credential,{responseType:'text' as 'json'}).toPromise();
+      let techJwt = await this.http.post<string>("https://nodal-pixel-309121.uc.r.appspot.com/tech/login",credential,{responseType:'text' as 'json'}).toPromise();
       return techJwt;    
     }catch(e : any) {
       alert("Incorrect credentials");

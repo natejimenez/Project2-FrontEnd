@@ -18,7 +18,7 @@ export class TicketService {
             "Authorization": jwt
         }
     }
-    const tickets:Ticket[] = await this.http.get<Ticket[]>("http://34.72.131.97:8081/tickets",details).toPromise();
+    const tickets:Ticket[] = await this.http.get<Ticket[]>("https://nodal-pixel-309121.uc.r.appspot.com/tickets",details).toPromise();
     return tickets
   }
 
@@ -30,7 +30,7 @@ export class TicketService {
             "Authorization": jwt
         }
     }
-    const ticket:Ticket = await this.http.get<Ticket>(`http://34.72.131.97:8081/tickets/${id}`,details).toPromise();
+    const ticket:Ticket = await this.http.get<Ticket>(`https://nodal-pixel-309121.uc.r.appspot.com/tickets/${id}`,details).toPromise();
     return ticket
     }catch(e : any) {
       alert("Incorrect credentials");
@@ -46,7 +46,7 @@ export class TicketService {
             "Authorization": jwt
         }
     }
-    ticket = await this.http.post<Ticket>("http://34.72.131.97:8081/tickets",ticket,details).toPromise();
+    ticket = await this.http.post<Ticket>("https://nodal-pixel-309121.uc.r.appspot.com/tickets",ticket,details).toPromise();
     return ticket
     }catch(e : any) {
       alert("More information is needed");
@@ -62,7 +62,7 @@ export class TicketService {
             "Authorization": jwt
         }
     }
-    const clientTickets:Ticket[] = await this.http.get<Ticket[]>(`http://34.72.131.97:8081/tickets/client/${id}`,details).toPromise();
+    const clientTickets:Ticket[] = await this.http.get<Ticket[]>(`https://nodal-pixel-309121.uc.r.appspot.com/tickets/client/${id}`,details).toPromise();
     return clientTickets
     }catch(e : any) {
       alert("Client does not exist");
@@ -71,7 +71,7 @@ export class TicketService {
   }
 
   async getTicketsByTechId(id:number):Promise<Ticket[]>{
-    const techTickets:Ticket[] = await this.http.get<Ticket[]>(`http://34.72.131.97:8081/tech/ticket?id=${id}`).toPromise();
+    const techTickets:Ticket[] = await this.http.get<Ticket[]>(`https://nodal-pixel-309121.uc.r.appspot.com/tech/ticket?id=${id}`).toPromise();
     return techTickets
   }
 
@@ -83,7 +83,7 @@ export class TicketService {
             "Authorization": jwt
         }
     }
-    ticket = await this.http.put<Ticket>(`http://34.72.131.97:8081/tickets/${id}`,ticket,details).toPromise();
+    ticket = await this.http.put<Ticket>(`https://nodal-pixel-309121.uc.r.appspot.com/tickets/${id}`,ticket,details).toPromise();
     return ticket
     }catch(e : any) {
       alert("Technician does not exist");
@@ -102,7 +102,7 @@ export class TicketService {
             }
         }
 
-      await this.http.post(`http://34.72.131.97:8081/tech/ticket`,techTicket,details).toPromise();
+      await this.http.post(`https://nodal-pixel-309121.uc.r.appspot.com/tech/ticket`,techTicket,details).toPromise();
     }catch(e : any) {
       alert("Technician does not exist");
     }
@@ -117,7 +117,7 @@ export class TicketService {
                 "Authorization": jwt
             }
         }
-    ticket = await this.http.put<Ticket>(`http://34.72.131.97:8081/tech/ticket`,ticket,details).toPromise();
+    ticket = await this.http.put<Ticket>(`https://nodal-pixel-309121.uc.r.appspot.com/tech/ticket`,ticket,details).toPromise();
     alert("Ticket was successfully escalated")
         return ticket
       }catch(e : any) {
@@ -135,7 +135,7 @@ export class TicketService {
             }
         }
 
-    ticket = await this.http.put<Ticket>(`http://34.72.131.97:8081/tech/ticket?closed=true`,ticket,details).toPromise();
+    ticket = await this.http.put<Ticket>(`https://nodal-pixel-309121.uc.r.appspot.com/tech/ticket?closed=true`,ticket,details).toPromise();
     alert("Ticket was successfully closed.")
         return ticket
       }catch(e : any) {
