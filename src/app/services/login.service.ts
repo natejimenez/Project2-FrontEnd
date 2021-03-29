@@ -13,7 +13,6 @@ export class LoginService {
 
     try{
       let clientJwt = await this.http.post<string>("http://localhost:8081/client/login",credential,{responseType:'text' as 'json'}).toPromise();
-      console.log(clientJwt);
       return clientJwt
     }catch(e : any) {
       alert("Incorrect credentials");
@@ -23,10 +22,8 @@ export class LoginService {
   }
   async techLogin(credential:Credential){
 
-    console.log(credential);
     try{
       let techJwt = await this.http.post<string>("http://localhost:8081/tech/login",credential,{responseType:'text' as 'json'}).toPromise();
-      console.log(techJwt);
       return techJwt;    
     }catch(e : any) {
       alert("Incorrect credentials");

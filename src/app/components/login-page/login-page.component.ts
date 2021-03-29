@@ -20,11 +20,8 @@ export class LoginPageComponent implements OnInit {
   async loginClient(){
     let credential:Credential = new Credential(this.userName,this.password)
     const jwt = await this.loginService.clientLogin(credential); 
-    console.log(jwt);
     localStorage.setItem('jwt',jwt);
     var decoded = await this.loginService.parseJwt(jwt);
-    console.log(decoded.role)
-    console.log(localStorage.getItem('jwt'))
     localStorage.setItem('role',decoded.role)
     localStorage.setItem('id',decoded.id)
 
@@ -37,8 +34,6 @@ export class LoginPageComponent implements OnInit {
     const jwt = await this.loginService.techLogin(credential);
     localStorage.setItem('jwt',jwt);
     var decoded = await this.loginService.parseJwt(jwt)
-    console.log(decoded.role)
-    console.log(localStorage.getItem('jwt'))
     localStorage.setItem('role',decoded.role)
     localStorage.setItem('id',decoded.id)
     if(decoded.role == 'TECH'){

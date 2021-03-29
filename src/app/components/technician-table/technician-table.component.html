@@ -65,33 +65,6 @@
             
         </table>
 
-
-
-
-
-        <!-- <table>
-
-            <thead><th>ID</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th></thead>
-        <tbody>
-            <tr *ngFor="let ticket of tickets">
-                
-        
-                <td>{{ticket.ticketId}}</td>
-                <td>{{ticket.description}}</td>
-                <td>{{ticket.epochStart | date:'medium'}}</td>
-                <td>
-                    <div *ngIf="ticket.epochEnd>0; else elseBlock">
-                        {{ticket.epochEnd | date:'medium'}}
-                      </div>
-                      <ng-template #elseBlock>
-                        Pending
-                      </ng-template>
-        
-                    </td>
-            </tr>
-        </tbody>
-        
-        </table> -->
     </div>
   </div>
 
