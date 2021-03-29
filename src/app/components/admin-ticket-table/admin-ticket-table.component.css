@@ -37,3 +37,8 @@ table {
   background-color: #D1C4E9;
   
 }
+.ticketsTable {
+  height: 80%;
+  width: 100%;
+  overflow: auto;
+}
