@@ -37,7 +37,6 @@ export class TechnicianTableComponent implements OnInit {
 
   async getTicketsOfTech(id:number){
     this.technician = await this.technicianService.getTech(id)
-   console.log(this.technician.id)
     this.tickets = await this.ticketService.getTicketsByTechId(id)
   }
 

@@ -40,64 +40,6 @@
 </table>
 </div>
 </div>
-<!-- <table>
-
-
-<table>
-
-
-    <thead><th>ID</th><th>Description</th><th>Date Submitted</th><th>Date Completed</th></thead>
-<tbody>
-    <tr *ngFor="let ticket of tickets">
-
-        <td>{{ticket.ticketId}}</td>
-        <td>{{ticket.description}}</td>
-        <td>{{ticket.epochStart | date:'medium'}}</td>
-        <td><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
-        <td><button class="btn btn-outline-dark" (click) = "getTicket(ticket.ticketId)">See Details</button></td>
-
-    </tr>
-</tbody>
-
-
-
-
-<!-- <table >
-    <thead></thead>
-    <tbody>
-
-        <tr>
-            <td class="leftHeader">Ticket ID</td>          
-            <td>{{ticket.ticketId}}</td>
-            
-        </tr>
-        <tr>
-            <td class="leftHeader">Client ID</td>
-            <td>{{ticket.clientId}}</td>
-         </tr>
-        <tr>
-            <td class="leftHeader">Description</td>
-            <td>{{ticket.description}}</td>
-        </tr>
-        <tr>
-            <td class="leftHeader">Date Submitted</td>
-            <td>{{ticket.epochStart | date:'medium'}}</td>
-            
-        </tr>
-        <tr>
-            <td class="leftHeader">Date Completed</td>
-        <td><div *ngIf="ticket.epochEnd > 0">{{ticket.epochEnd | date:'medium'}}</div></td>
-        </tr>
-         <tr>
-            <td class="leftHeader">Comments</td>
-            <td>{{ticket.comments}}</td>
-         </tr>
-         
-    </tbody>
-
-</table> -->
-
-
 
  <div class="ticketDetails">
 <table>
