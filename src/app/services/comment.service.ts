@@ -15,6 +15,7 @@ export class CommentService {
   }
 
   async createComment(comment:Comment,ticketId:number):Promise<Comment>{
+    try{
     const jwt = <string>localStorage.getItem('jwt')
     const details = {
         headers:{
@@ -23,5 +24,9 @@ export class CommentService {
     }
     comment = await this.http.post<Comment>(`http://localhost:8081/tickets/${ticketId}/comments`,comment,details).toPromise();
     return comment
+    }catch(e : any) {
+      alert("Unauthorized");
+    }
+    return null as any;
   }
 }
