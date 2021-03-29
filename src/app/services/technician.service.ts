@@ -16,8 +16,13 @@ export class TechnicianService {
   }
 
   async getTech(id:number):Promise<Technician>{
-    const technician:Technician = await this.http.get<Technician>(`http://localhost:8081/tech?id=${id}`).toPromise();
+    try{
+      const technician:Technician = await this.http.get<Technician>(`http://localhost:8081/tech?id=${id}`).toPromise();
     return technician
+    }catch(e : any) {
+      alert("Technician not found");
+    }
+    return null as any;
   }
 
 

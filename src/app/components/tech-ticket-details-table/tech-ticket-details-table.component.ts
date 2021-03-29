@@ -57,13 +57,11 @@ export class TechTicketDetailsTableComponent implements OnInit {
 
   async escalateTicket(ticket:Ticket){
     await this.ticketService.escalateTicket(ticket)
-    alert("Ticket was successfully escalated")
     this.refreshTickets()
 
   }
   async closeTicket(ticket:Ticket){
     await this.ticketService.closeTicket(ticket)
-    alert("Ticket was successfully closed.")
     this.tickets = await this.ticketService.getAllTickets()
 
   }
