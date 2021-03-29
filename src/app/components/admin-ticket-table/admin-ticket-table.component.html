@@ -67,27 +67,27 @@
     <table >
         <thead></thead>
         <tbody>
-            <tr><td><app-assign-ticket-dialog></app-assign-ticket-dialog></td><td><button mat-raised-button color="accent" (click)="refreshTicket()">Refresh Details</button></td></tr>
+            <tr><td><app-assign-ticket-dialog></app-assign-ticket-dialog></td><td><button mat-raised-button color="primary" (click)="refreshTicket()">Refresh Details</button></td></tr>
     
             <tr>
-                <td class="leftHeader">Ticket ID</td>          
+                <td class="leftHeader">Ticket ID:</td>          
                 <td>{{ticket.ticketId}}</td>
                 
             </tr>
             <tr>
-                <td class="leftHeader">Client ID</td>
+                <td class="leftHeader">Client ID:</td>
                 <td>{{ticket.clientId}}</td>
              </tr>
             <tr>
-                <td class="leftHeader">Description</td>
+                <td class="leftHeader">Description:</td>
                 <td>{{ticket.description}}</td>
             </tr>
             <tr>
-                <td class="leftHeader">Date Submitted</td>
+                <td class="leftHeader">Date Submitted:</td>
                 <td>{{ticket.epochStart | date:'medium'}}</td>
             </tr>
             <tr>
-                <td class="leftHeader">Date Completed</td>
+                <td class="leftHeader">Date Completed:</td>
                 <td>
                     <div *ngIf="ticket.epochEnd>0; else elseBlock">
                         {{ticket.epochEnd | date:'medium'}}

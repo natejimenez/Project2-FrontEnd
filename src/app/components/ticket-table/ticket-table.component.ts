@@ -41,5 +41,11 @@ export class TicketTableComponent implements OnInit {
     this.comments = await this.commentService.getAllComments(saved)
 
   }
+  async refreshTicket(){
+    let saved = JSON.parse(localStorage.ticketId)
+    console.log(saved)
+    this.comments = await this.commentService.getAllComments(saved)
+
+  }
 
 }

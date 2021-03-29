@@ -75,6 +75,13 @@ export class TechTicketTableComponent implements OnInit {
 
   }
 
+  async refreshTicket(){
+    let saved = JSON.parse(localStorage.ticketId)
+    console.log(saved)
+    this.comments = await this.commentService.getAllComments(saved)
+
+  }
+
 
 }
 
