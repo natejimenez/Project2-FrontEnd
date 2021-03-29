@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Credential } from 'src/app/models/credential'
 
@@ -11,16 +11,24 @@ export class LoginService {
 
   async clientLogin(credential:Credential){
 
-    let clientJwt = await this.http.post<string>("http://localhost:8081/client/login",credential,{responseType:'text' as 'json'}).toPromise();  
-    console.log(clientJwt)
-    return clientJwt
+    try{
+      let clientJwt = await this.http.post<string>("http://localhost:8081/client/login",credential,{responseType:'text' as 'json'}).toPromise();
+      return clientJwt
+    }catch(e : any) {
+      alert("Incorrect credentials");
+    }
+    return "";
+
   }
   async techLogin(credential:Credential){
-    console.log(credential)
-    let techJwt = await this.http.post<string>("http://localhost:8081/tech/login",credential,{responseType:'text' as 'json'}).toPromise();
 
-    console.log(techJwt)
-    return techJwt    
+    try{
+      let techJwt = await this.http.post<string>("http://localhost:8081/tech/login",credential,{responseType:'text' as 'json'}).toPromise();
+      return techJwt;    
+    }catch(e : any) {
+      alert("Incorrect credentials");
+    }
+    return "";
   }
 
   async parseJwt (token:string) {

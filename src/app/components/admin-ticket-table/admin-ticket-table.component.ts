@@ -48,13 +48,13 @@ export class AdminTicketTableComponent implements OnInit {
     this.ticket = await this.ticketService.getTicketById(id)
     localStorage.ticketId = JSON.stringify(id)
     let saved = JSON.parse(localStorage.ticketId)
-    console.log(saved)
+
     this.comments = await this.commentService.getAllComments(saved)
 
   }
   async refreshTicket(){
     let saved = JSON.parse(localStorage.ticketId)
-    console.log(saved)
+
     this.comments = await this.commentService.getAllComments(saved)
 
   }
@@ -72,13 +72,11 @@ export class AdminTicketTableComponent implements OnInit {
   }
   async escalateTicket(ticket:Ticket){
     await this.ticketService.escalateTicket(ticket)
-    alert("Ticket was successfully escalated")
     this.tickets = await this.ticketService.getAllTickets()
 
   }
   async closeTicket(ticket:Ticket){
     await this.ticketService.closeTicket(ticket)
-    alert("Ticket was successfully closed.")
     this.tickets = await this.ticketService.getAllTickets()
 
   }
