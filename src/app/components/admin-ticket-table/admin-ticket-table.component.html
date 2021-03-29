@@ -55,17 +55,19 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns" class = "pointer"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" class = "pointer" (click) = "getTicket(row.ticketId)"></tr>
     
 </table>
 </div>
 
 <div class="ticketDetails">
     <h2>Select a Ticket to View Details</h2>
+    
+
     <table >
         <thead></thead>
         <tbody>
-            <tr><td><app-assign-ticket-dialog></app-assign-ticket-dialog></td><td><app-create-comment-dialog></app-create-comment-dialog></td></tr>
+            <tr><td><app-assign-ticket-dialog></app-assign-ticket-dialog></td><td><button mat-raised-button color="accent" (click)="refreshTicket()">Refresh Details</button></td></tr>
     
             <tr>
                 <td class="leftHeader">Ticket ID</td>          
@@ -119,7 +121,7 @@
 
              </tr>
              <tr>
-                
+                <app-create-comment-dialog></app-create-comment-dialog>
                 
              </tr>
              
