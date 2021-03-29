@@ -22,6 +22,7 @@ export class LoginService {
 
   }
   async techLogin(credential:Credential){
+
     console.log(credential);
     try{
       let techJwt = await this.http.post<string>("http://localhost:8081/tech/login",credential,{responseType:'text' as 'json'}).toPromise();

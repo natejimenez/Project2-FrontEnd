@@ -52,6 +52,12 @@ export class AdminTicketTableComponent implements OnInit {
     this.comments = await this.commentService.getAllComments(saved)
 
   }
+  async refreshTicket(){
+    let saved = JSON.parse(localStorage.ticketId)
+    console.log(saved)
+    this.comments = await this.commentService.getAllComments(saved)
+
+  }
 
   async assignTicket(id:number){
     let decoded;
