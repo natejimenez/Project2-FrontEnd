@@ -1,19 +1,19 @@
 # Ticket Handling System (THS)
 This application is a handler for tickets pertaining to any field of work that accepts work ticket requests from clients, dispatches tickets to employees or technicians, and allows managers to view all submitted tickets, address client concerns, and appropriately allocate technician resources to each ticket.
 # Technologies Used
-•	Angular 11
-•	Java 1.8
-•	Gradle
+## •	Angular 11
+## •	Java 1.8
+## •	Gradle
 •	PostgreSQL 13
 # Features
 •	A user (customer/technician/admin) can create a ticket
 •	Either a technician or an Admin can be assigned a ticket
 •	A user (customer/technician/admin) can comment on a ticket to communicate information
 # Contributors
-•	Stefan (Lead)
-•	Nathan
-•	Aristotle
-•	Nasim
+•	[Stefan (Lead)](https://github.com/samaurer2)
+•	[Nathan](https://github.com/natejimenez)
+•[Aristotle](https://github.com/StotTot)
+•	[Nasim](https://github.com/nasimHB)
 
 
 # Project2Front
